@@ -1,17 +1,19 @@
 import React,{ useRef } from "react"
 import { Form, Button, Card } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContexts"
-import {Link } from "react-router-dom"
+import {Link, useHistory } from "react-router-dom"
 
 
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const { signup, currentUser } = useAuth()
+    const mainPage = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault();
         signup(emailRef.current.value, passwordRef.current.value)
+        mainPage.push("/")
     }
     return (
         <>
