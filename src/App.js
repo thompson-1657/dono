@@ -2,26 +2,31 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
-// import Main from "./pages/Main";
+import Main from "./pages/Main";
 import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
-import { AuthProvider} from "./contexts/AuthContexts"
+import Login from "./pages/Login";
+import { AuthProvider } from "./contexts/AuthContexts"
 
 // library.add(fab)
 
 function App() {
     return (<>
-        <AuthProvider>
+
         <Router>
-        <div>
-            <Navbar />
-           <div className="w-100" style={{maxWidth: "400px"}}>
-            <Route  exact path="/" component= {Signup} />
-            </div>
+            <div>
+                <Navbar /> 
+               <AuthProvider>
+                    <div className="w-100" style={{ maxWidth: "400px" }}>
+                        <Route exact path="/" component={Main} />
+                        <Route path="/signup" component={Signup} />
+                        <Route path="/login" component={Login} />
+                    </div>
+            </AuthProvider>
         </div>
         </Router>
-        </AuthProvider>
-        </>
+
+    </>
     )
 }
 
