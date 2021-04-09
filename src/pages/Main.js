@@ -1,7 +1,7 @@
 import React from "react"
-
-
+import { Card } from "react-bootstrap"
 const nodeFetch = require('node-fetch');
+
 
 const phq = require('predicthq');
 // Initialises PredictHQ client library using your access token
@@ -33,6 +33,8 @@ phqEvents.search({within: withinParam, category: "community", label: "food-drive
 phqEvents.search({'place.scope': '5128638', 'sort': '-start'})
     .then(logEventsToConsole)
     .catch(err => console.error(err));
+
+
 function Main(){
     return(
         <>
