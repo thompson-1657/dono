@@ -22,6 +22,12 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Donate'
         }
+    ],
+    polls: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Poll'
+        }
     ]
 })
 
