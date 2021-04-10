@@ -1,5 +1,6 @@
 import React from "react"
 import { Card, Button } from "react-bootstrap"
+import { Link, useHistory } from  "react-router-dom"
 const nodeFetch = require('node-fetch');
 
 
@@ -36,12 +37,14 @@ phqEvents.search({'place.scope': '5128638', 'sort': '-start'})
 
 
 function Main(){
+    const history = useHistory()
+    function handleLogout(){
+        history.push("/login")
+    }
     return(
         <>
-
+        <Button variant="link" onClick={handleLogout}>Log Out</Button>
         </>
-
-
     )
 
 

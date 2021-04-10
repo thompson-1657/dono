@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContexts"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 import Main from "./pages/Main";
 import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import { AuthProvider } from "./contexts/AuthContexts"
+import PrivateRoute from "./components/PrivateRoute"
+
 
 // library.add(fab)
 
@@ -18,7 +20,7 @@ function App() {
                 <Navbar /> 
                <AuthProvider>
                     <div className="w-100" style={{ maxWidth: "400px" }}>
-                        <Route exact path="/" component={Main} />
+                        <PrivateRoute exact path="/" component={Main} />
                         <Route path="/signup" component={Signup} />
                         <Route path="/login" component={Login} />
                     </div>
