@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContexts"
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { fab } from '@fortawesome/free-brands-svg-icons'
+import Main from "./pages/Main";
+import Navbar from "./components/Navbar";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import PrivateRoute from "./components/PrivateRoute"
+
+
+// library.add(fab)
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (<>
+
+        <Router>
+            <div>
+                <Navbar /> 
+               <AuthProvider>
+                    <div className="w-100" style={{ maxWidth: "400px" }}>
+                        <PrivateRoute exact path="/" component={Main} />
+                        <Route path="/signup" component={Signup} />
+                        <Route path="/login" component={Login} />
+                    </div>
+            </AuthProvider>
+        </div>
+        </Router>
+
+    </>
+    )
 }
 
 export default App;
