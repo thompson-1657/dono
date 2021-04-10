@@ -36,6 +36,21 @@ const donateSeed = [
 
 ]
 
+
+const pollSeed = [
+    {
+        text: "Baby crib",
+        typeOfDonation: "Utility",
+        date: new Date(Date.now()),
+    },
+    {
+        text: "Baby food",
+        typeOfDonation: "Parishable",
+        date: new Date(Date.now()),
+    }
+]
+
+
 const runSeeder = async () => {
 
     console.log(donateSeed)
@@ -43,19 +58,27 @@ const runSeeder = async () => {
         await db.User.deleteMany({})
         await db.Post.deleteMany({})
         await db.Donate.deleteMany({})
+        await db.Poll.deleteMany({})
+
 
         const posts = await db.Post.insertMany(postsSeed)
 
         const donations = await db.Donate.insertMany(donateSeed)
 
+        const polls = await db.Poll.insertMany(pollSeed)
+
         const postIds = posts.map(post => post._id)
 
         const donationIds = donations.map(donate => donate._id)
 
+        const pollIds = polls.map(poll => poll._id)
+
+
         const finalUserData = {
             ...userSeed,
             posts: postIds,
-            donations: donationIds
+            donations: donationIds,
+            polls: pollIds
         }
 
         const user = await db.User.create(finalUserData)
@@ -65,6 +88,10 @@ const runSeeder = async () => {
         })
 
         await db.Donate.updateMany({}, {
+            user: user._id
+        })
+
+        await db.Poll.updateMany({}, {
             user: user._id
         })
 
