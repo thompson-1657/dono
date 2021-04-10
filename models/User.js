@@ -16,6 +16,12 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Post'
         }
+    ],
+    donations: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Donate'
+        }
     ]
 })
 
