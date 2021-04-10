@@ -6,29 +6,32 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dono_db");
 
 const postsSeed = [
     {
-        post: "I would like to collect coats in my neighborhood",
+        text: "I would like to collect coats in my neighborhood",
         date: new Date(Date.now())
     },
     {
-        post: "I want to donate food this weekend at my restaurant",
+        text: "I want to donate food this weekend at my restaurant",
         date: new Date(Date.now())
     }
 ]
 
-const userSeed = [
+const userSeed = 
     {
-        email: "jon.doe@gmail.com",
-        password: "123456789"
+        password: "123456789",
+        email: "jon.doe@gmail.com"
+        
     }
-]
+
 
 const runSeeder = async () => {
 
     try {
         await db.User.deleteMany({})
         await db.Post.deleteMany({})
+
         const posts = await db.Post.insertMany(postsSeed)
-        await db.User.insertMany(userSeed)
+
+        // const users = await db.User.insertMany(userSeed)
 
         const postIds = posts.map(post => post._id)
       
@@ -37,9 +40,12 @@ const runSeeder = async () => {
             posts: postIds
         }
         
-        const user = await db.User.updateMany(finalUserData)
-        await db.Post.updateMany({ user: user._id })
+        const user = await db.User.create(finalUserData)
 
+        await db.Post.updateMany({}, { 
+            user: user._id
+        })
+        
     } catch(err) {
         throw new err
     }

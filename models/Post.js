@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const postSchema = new Schema({
-    post: {
+    text: {
         type: String,
         required: 'All posts require text'
     },
@@ -10,10 +10,12 @@ const postSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    user: {
+    user:
+    {
         type: Schema.Types.ObjectId,
         ref: 'User'
-      }
+    }
+
 })
 
 const Post = mongoose.model('Post', postSchema)
