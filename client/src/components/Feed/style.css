@@ -1,0 +1,13 @@
+.main {
+    text-align: center;
+    padding: 15px;
+}
+
+.card {
+    max-width: 100%;
+}
+
+.posts {
+    text-align: center;
+    background-color: white;
+}

@@ -8,14 +8,18 @@ import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute"
-
-
+import Home from './components/Main'
+import Poll from './components/Poll'
+import Feed from './components/Feed'
 // library.add(fab)
+import './index.css'
 
 function App() {
     return (<>
 
-        <Router>
+
+        <Home />
+        {/* <Router>
             <div>
                 <Navbar /> 
                <AuthProvider>
@@ -26,7 +30,7 @@ function App() {
                     </div>
             </AuthProvider>
         </div>
-        </Router>
+        </Router> */}
 
     </>
     )
