@@ -11,14 +11,26 @@ import PrivateRoute from "./components/PrivateRoute"
 import Home from './components/Main'
 import Poll from './components/Poll'
 import Feed from './components/Feed'
+import Chat from './components/Chat'
+import Menu from './components/Menu'
 // library.add(fab)
 import './index.css'
 
 function App() {
     return (<>
 
+        <Router>
 
-        <Home />
+        <Route exact path='/'><Home />
+        </Route>
+        <Route path='/chat'>
+            <Menu />
+            <Chat />
+
+        </Route>
+
+
+        </Router>
         {/* <Router>
             <div>
                 <Navbar /> 

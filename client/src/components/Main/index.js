@@ -6,12 +6,18 @@ import './style.css'
 import Poll from '../Poll'
 import Feed from '../Feed'
 import Donate from '../Donate'
+import Connect from '../Connect'
+import Menu from '../Menu'
 
 function Home() {
     return( 
-   <div>    
+    <>
+    <div className="main">    
 
-    <h1 className="top">Dono</h1>
+    <Row className="head">
+    <Menu />
+
+    </Row>
 
     <Row>
         <Col sm={3}>
@@ -22,10 +28,12 @@ function Home() {
         </Col>
         <Col sm={3}>
         <Donate />
+        <Connect />
         </Col>
     </Row>
         
 </div>
+</>
 )
 }
 

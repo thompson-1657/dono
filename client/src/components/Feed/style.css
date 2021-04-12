@@ -10,4 +10,6 @@
 .posts {
     text-align: center;
     background-color: white;
+    margin-top: 15px;
+    padding: 10px;
 }

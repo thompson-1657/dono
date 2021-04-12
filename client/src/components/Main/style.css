@@ -2,11 +2,15 @@
     text-align: center;
     margin: 15px;
     padding-top: 15px;
-    font-size: 36px;
+    font-size: 54px;
 }
 
-body {
-background: #D8E3EC;
-
+.main {
+    background-color: #D8E3EC;
 }
 
+
+.head {
+    background-color: white;
+    padding: 25px;
+}

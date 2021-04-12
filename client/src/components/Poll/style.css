@@ -1,3 +1,11 @@
 .poll {
     margin: 15px;
+    
 }
+
+.poll-container {
+    border: 1px;
+    background: white;
+    margin-left: 15px;
+}
+

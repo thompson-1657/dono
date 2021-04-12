@@ -4,6 +4,8 @@ import './style.css'
 
 
 const Poll = () => (
+ <div className="poll-container">
+<p className="poll">Poll Title</p>   
 <Form className="poll">
    
    <Form.Check 
@@ -22,6 +24,7 @@ const Poll = () => (
 
 
 </Form>
+</div>
 )
 
 
