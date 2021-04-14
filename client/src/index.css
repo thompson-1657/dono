@@ -28,7 +28,8 @@ body {
   }
 } */
 
-body {
+body,
+html {
   background-color: #d8e3ec;
   width: 100%;
   margin: 0px;

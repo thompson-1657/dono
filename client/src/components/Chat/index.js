@@ -6,7 +6,7 @@ import './style.css'
 
 const Chat = () => (
   <>
-  <Navbar />
+  
     <Row>
         <Col md={2}>
 

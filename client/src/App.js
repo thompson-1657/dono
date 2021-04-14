@@ -1,21 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContexts"
+// import { AuthProvider } from "./contexts/AuthContexts"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
-import Main from "./pages/Main";
-import Navbar from "./components/Navbar";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import PrivateRoute from "./components/PrivateRoute"
+// import Main from "./pages/Main";
+// import Navbar from "./components/Navbar";
+// import Signup from "./pages/Signup";
+// import Login from "./pages/Login";
+// import PrivateRoute from "./components/PrivateRoute"
 import Home from './components/Main'
-import Poll from './components/Poll'
-import Feed from './components/Feed'
-import Chat from './components/Chat'
-import Menu from './components/Menu'
+// import Poll from './components/Poll'
+// import Feed from './components/Feed'
+// import Chat from './components/Chat'
+// import Menu from './components/Menu'
 import Donate from './pages/Donate'
 import PreLogin from './pages/PreLogin'
-// import './App.css';
+import Connect from './pages/Connect'
+import './App.css';
 // library.add(fab)
 // import './index.css'
 
@@ -26,9 +27,8 @@ function App() {
             <Route exact path='/'>
                 <PreLogin />
             </Route>
-            <Route path='/chat'>
-                
-                <Chat />
+            <Route path='/connect'>
+                 <Connect />
             </Route>
             <Route path='/donate'>
                 <Donate />
