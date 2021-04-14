@@ -15,6 +15,10 @@ const userSchema = new Schema({
         type: Number,
         required: 'A zip code is required'
     },
+    // firebaseId: {
+    //     type: String,
+    //     required: 'Every userneeds a firebase ID'
+    // },
     posts: [
         {
             type: Schema.Types.ObjectId,
@@ -31,6 +35,12 @@ const userSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'Poll'
+        }
+    ],
+    channels: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Channel'
         }
     ]
 })

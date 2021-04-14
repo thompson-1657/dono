@@ -19,8 +19,9 @@ const userSeed =
 {
     password: "123456789",
     email: "jon.doe@gmail.com",
-    zipCode: 60626
-
+    zipCode: 60626,
+    // firebaseId: "12345",
+    // channels: ["1"]
 }
 
 const donateSeed = [
@@ -51,22 +52,40 @@ const pollSeed = [
     }
 ]
 
+const channelSeed = [
+    {
+        text: "Channel title",
+        date: new Date(Date.now())
+    },
+    {
+        text: "Next channel title",
+        date: new Date(Date.now())
+    }
+]
 
 const runSeeder = async () => {
 
-    console.log(donateSeed)
     try {
         await db.User.deleteMany({})
         await db.Post.deleteMany({})
         await db.Donate.deleteMany({})
         await db.Poll.deleteMany({})
+        await db.Channel.deleteMany({})
 
+        console.log("hi")
 
         const posts = await db.Post.insertMany(postsSeed)
+        console.log(posts)
 
         const donations = await db.Donate.insertMany(donateSeed)
+        console.log(donations)
 
         const polls = await db.Poll.insertMany(pollSeed)
+        console.log(polls)
+
+        const channels = await db.Channel.insertMany(channelSeed)
+
+        console.log(channels)
 
         const postIds = posts.map(post => post._id)
 
@@ -74,12 +93,14 @@ const runSeeder = async () => {
 
         const pollIds = polls.map(poll => poll._id)
 
+        const channelIds = channels.map(channel => channel._id)
 
         const finalUserData = {
             ...userSeed,
             posts: postIds,
             donations: donationIds,
-            polls: pollIds
+            polls: pollIds,
+            channels: channelIds
         }
 
         const user = await db.User.create(finalUserData)
@@ -95,6 +116,11 @@ const runSeeder = async () => {
         })
 
         await db.Poll.updateMany({}, {
+            user: user._id,
+            zipCode: user.zipCode
+        })
+
+        await db.Channel.updateMany({}, {
             user: user._id,
             zipCode: user.zipCode
         })
