@@ -1,22 +1,41 @@
 import React from "react";
 import { Link} from "react-router-dom";
 import "./style.css";
+import {Button} from 'react-bootstrap'
+
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-     
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className="navbar-nav">
-          <Link className="nav-item nav-link" to="/">Main <span class="sr-only">(current)</span> </Link>
-          <Link className="nav-item nav-link" to="/portfolio">Portfolio</Link>
+    <nav className="navbar navbar-expand-lg navbar-light">
+    <div className="container-fluid">
+    <Link to="/" className="navbar-brand" href="#">
+        <h1>dōnō</h1>
+    </Link>
+<Button className="navbar-toggler" type="button" data-toggle="collapse"     data-target="#navbarSupportedContent">
+<span className="navbar-toggler-icon"></span>
+</Button>
 
-        </div>
-      </div>
-    </nav>
+<div className="collapse navbar-collapse" id="navbarSupportedContent">
+ <ul className="navbar-nav  mb-2 mb-lg-0">
+    <li className="nav-item">
+         <Link to="/" className="nav-link" aria-current="page" href="#">Home</Link>
+    </li>
+    <li className="nav-item">
+        <Link to="/donate" className="nav-link" aria-current="page" href="#">Donate</Link>
+    </li>
+     <li className="nav-item">
+        <Link to="/chat" className="nav-link" aria-current="page" href="#">Connect</Link>
+     </li>
+     <li className="nav-item">
+        <Link to="/" className="nav-link" aria-current="page" href="#">Logout</Link> 
+        {/* change logout route to logout */}
+     </li>
+
+ </ul>
+</div>
+</div>
+</nav>
+
   )
 }
 

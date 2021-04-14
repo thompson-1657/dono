@@ -1,9 +1,12 @@
 import React from 'react'
 import {Form, Col, Row} from 'react-bootstrap'
+import Navbar from '../Navbar'
 import './style.css'
 
 
 const Chat = () => (
+  <>
+  <Navbar />
     <Row>
         <Col md={2}>
 
@@ -23,6 +26,7 @@ const Chat = () => (
 
   </Col>
   </Row>
+  </>
 
 
 )

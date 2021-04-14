@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -26,4 +26,18 @@ body {
   .footer {
     position: inherit;
   }
+} */
+
+body {
+  background-color: #d8e3ec;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.button-div {
+  position: absolute;
+  right: 3%;
+  top: 3%;
 }

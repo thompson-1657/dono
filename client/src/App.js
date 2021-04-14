@@ -15,28 +15,27 @@ import Chat from './components/Chat'
 import Menu from './components/Menu'
 import Donate from './pages/Donate'
 import PreLogin from './pages/PreLogin'
+// import './App.css';
 // library.add(fab)
-import './index.css'
+// import './index.css'
 
 function App() {
     return (<>
 
         <Router>
-
-        <Route exact path='/'><Home />
-        </Route>
-        <Route path='/chat'>
-            <Menu />
-            <Chat />
-        </Route>
-        <Route path='/donate'>
-            <Donate />
-        </Route>
-
-        <Route path='/prelogin'>
-            <PreLogin />
-        </Route>
-
+            <Route exact path='/'>
+                <PreLogin />
+            </Route>
+            <Route path='/chat'>
+                
+                <Chat />
+            </Route>
+            <Route path='/donate'>
+                <Donate />
+            </Route>
+                <Route path='/home'>
+                <Home />
+            </Route>
         </Router>
         {/* <Router>
             <div>

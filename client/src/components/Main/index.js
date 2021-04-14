@@ -15,7 +15,7 @@ function Home() {
     <div className="main">    
 
     <Row className="head">
-    <Menu />
+    <Navbar />
 
     </Row>
 
