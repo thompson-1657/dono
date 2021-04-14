@@ -10,6 +10,7 @@ import {Col, Row} from 'react-bootstrap'
 const PreLogin = () => (
 <>
 <Row>
+    
     <Col >
         <Logo />
     </Col>

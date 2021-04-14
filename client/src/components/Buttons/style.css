@@ -1,10 +1,11 @@
-.btn {
+.btn-dark {
   background-color: #1a262b;
   border: none;
   color: white;
-  border-radius: 0;
+  border-radius: 0 !important;
   font-family: "PT Sans Narrow", sans-serif;
+  width: 100px;
 }
-.btn:hover {
+.mr-3:hover {
   background-color: #14829f;
 }

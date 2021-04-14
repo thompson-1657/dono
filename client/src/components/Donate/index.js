@@ -4,10 +4,11 @@ import './style.css'
 
 
 const Donate = () => (
+  <>
     <Card className="donate">
     <Card.Body>Donate</Card.Body>
-    
-  </Card>
+    </Card>
+  </>
 
 
 )
