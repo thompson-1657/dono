@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 
 import DonateCard from '../components/DonateCard'
 // import {Col, Container, Row} from 'react-bootstrap'
-import donateCardData from '../donateCardData' 
+import donateCardData from '../donateCardData'
+import Navbar from '../components/Navbar' 
 
 
 class Donate extends Component {
@@ -12,7 +13,7 @@ class Donate extends Component {
   render(){
     return(
 <>
-
+<Navbar />
 <div className="container">
   <div className="row">
   {this.state.donateCardData.map(donate =>{

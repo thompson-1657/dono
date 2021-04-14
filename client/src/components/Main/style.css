@@ -1,16 +1,10 @@
 .top {
-    text-align: center;
-    margin: 15px;
-    padding-top: 15px;
-    font-size: 54px;
+  text-align: center;
+  margin: 15px;
+  padding-top: 15px;
+  font-size: 54px;
 }
 
 .main {
-    background-color: #D8E3EC;
-}
-
-
-.head {
-    background-color: white;
-    padding: 25px;
+  background-color: #d8e3ec;
 }

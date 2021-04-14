@@ -12,7 +12,7 @@ const Chat = () => (
     <div className="chat">
 
     <Form>
-    <Form.Group controlId="exampleForm.ControlTextarea1">
+    <Form.Group controlId="form-control">
     <Form.Label>Type your Message here</Form.Label>
     <Form.Control as="textarea" rows={3} />
   </Form.Group>
