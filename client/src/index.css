@@ -18,9 +18,8 @@ h1{
 }
 
 body {
-  background: #ff5f6d;
-  background: -webkit-linear-gradient(to right, #ff5f6d, #ffc371);
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  background: #D8E3EC;
+  background: -webkit-linear-gradient(to right, #D8E3EC, #D8E3EC);
   min-height: 100vh;
 }
 
