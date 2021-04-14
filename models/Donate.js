@@ -17,7 +17,11 @@ const donateSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-      }
+    },
+    zipCode: {
+        type: Number,
+        ref: 'User'
+    }
 })
 
 const Donate = mongoose.model('Donate', donateSchema)

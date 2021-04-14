@@ -18,7 +18,8 @@ const postsSeed = [
 const userSeed =
 {
     password: "123456789",
-    email: "jon.doe@gmail.com"
+    email: "jon.doe@gmail.com",
+    zipCode: 60626
 
 }
 
@@ -84,15 +85,18 @@ const runSeeder = async () => {
         const user = await db.User.create(finalUserData)
 
         await db.Post.updateMany({}, {
-            user: user._id
+            user: user._id,
+            zipCode: user.zipCode
         })
 
         await db.Donate.updateMany({}, {
-            user: user._id
+            user: user._id,
+            zipCode: user.zipCode
         })
 
         await db.Poll.updateMany({}, {
-            user: user._id
+            user: user._id,
+            zipCode: user.zipCode
         })
 
     } catch (err) {

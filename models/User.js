@@ -11,6 +11,10 @@ const userSchema = new Schema({
         type: String,
         required: 'A password is required'
     },
+    zipCode: {
+        type: Number,
+        required: 'A zip code is required'
+    },
     posts: [
         {
             type: Schema.Types.ObjectId,
