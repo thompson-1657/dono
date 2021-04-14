@@ -20,8 +20,8 @@ const Chat = () => (
   </div>
   </Col>
   <Col md={2}>
-
   </Col>
+  
   </Row>
 
 
