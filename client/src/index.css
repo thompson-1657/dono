@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -13,20 +12,18 @@ div[data-reactroot] {
   margin: 0;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 
 body {
-  background: #D8E3EC;
-  background: -webkit-linear-gradient(to right, #D8E3EC, #D8E3EC);
+  background: #d8e3ec;
+  background: -webkit-linear-gradient(to right, #d8e3ec, #d8e3ec);
   min-height: 100vh;
 }
 
-
 @media only screen and (min-width: 1024px) {
-  .footer{
+  .footer {
     position: inherit;
   }
-
 }

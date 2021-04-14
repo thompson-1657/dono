@@ -1,0 +1,35 @@
+.circle {
+  /* height: 350px;
+  width: 350px; */
+  height: 26vw;
+  width: 26vw;
+  border-radius: 50%;
+  background-color: #e66912;
+  box-shadow: -4px 12px 12px #333333;
+  position: absolute;
+  /* position: fixed; */
+  left: -9%;
+  margin-top: 3vw;
+  /* top: 8%; */
+
+  z-index: 3;
+}
+
+/* @media (max-width: 971px) {
+  .circle {
+    position: fixed;
+    top: 18%;
+  }
+}
+@media (max-width: 800px) {
+  .circle {
+    position: fixed;
+    top: 25%;
+  }
+}
+@media (max-width: 595px) {
+  .circle {
+    position: fixed;
+    top: 27%;
+  }
+} */

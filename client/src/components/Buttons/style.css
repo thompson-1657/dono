@@ -1,0 +1,10 @@
+.btn {
+  background-color: #1a262b;
+  border: none;
+  color: white;
+  border-radius: 0;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+.btn:hover {
+  background-color: #14829f;
+}
