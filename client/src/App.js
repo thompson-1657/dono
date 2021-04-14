@@ -13,6 +13,8 @@ import Poll from './components/Poll'
 import Feed from './components/Feed'
 import Chat from './components/Chat'
 import Menu from './components/Menu'
+import Donate from './pages/Donate'
+import PreLogin from './pages/PreLogin'
 // library.add(fab)
 import './index.css'
 
@@ -26,9 +28,14 @@ function App() {
         <Route path='/chat'>
             <Menu />
             <Chat />
-
+        </Route>
+        <Route path='/donate'>
+            <Donate />
         </Route>
 
+        <Route path='/prelogin'>
+            <PreLogin />
+        </Route>
 
         </Router>
         {/* <Router>

@@ -1,0 +1,9 @@
+h1 {
+  font-size: 100px;
+  font-family: "PT Sans Narrow", sans-serif;
+  /* margin-left: 270px; */
+  margin-left: 20%;
+  /* margin-top: 7px; */
+  margin-top: 2%;
+  text-shadow: -2px 5px 5px grey;
+}

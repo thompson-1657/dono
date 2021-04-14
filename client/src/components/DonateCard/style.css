@@ -1,0 +1,18 @@
+.donateCard {
+  height: 65vh;
+  width: 40vw;
+  background: #fff;
+  border-radius: 2px;
+  overflow: auto;
+  margin-top: 80px;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
+
+.cardText {
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
