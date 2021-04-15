@@ -34,9 +34,13 @@ module.exports = {
   },
   updatePoll: function(req, res) {
     const { id } = req.params
-    db.Poll.findByIdAndUpdate(id, req.body, { new: true })
-      .then(PollData => {
-        res.json(PollData)
+    // https://stackoverflow.com/questions/39946436/findoneandupdate-increment-instead-of-update-in-mongoose
+    var flag = 1;
+    db.Poll.findByIdAndUpdate(id, {$inc: {votes: flag}}, { new: true })
+      .then(pollData => {
+        console.log(pollData)
+        res.json(pollData)
+
       })
       .catch(err => {
         console.log(err)
