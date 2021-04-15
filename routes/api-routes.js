@@ -31,19 +31,19 @@ router.route('/api/channel/:id')
 
 router.route('/api/post')
     .get(postController.getPosts)
-    .post(postController.createPost)
+    // .post(postController.createPost)
 
 router.route('/api/donate')
     .get(donateController.getDonations)
-    .post(donateController.createDonation)
+    // .post(donateController.createDonation)
 
 router.route('/api/poll')
     .get(pollController.getPolls)
-    .post(pollController.createPolls)
+    // .post(pollController.createPolls)
 
 router.route('/api/channel')
     .get(channelController.getChannels)
-    .post(channelController.createChannels)
+    // .post(channelController.createChannels)
 
 
     

@@ -34,9 +34,14 @@ module.exports = {
   },
   updatePoll: function(req, res) {
     const { id } = req.params
-    db.Poll.findByIdAndUpdate(id, req.body, { new: true })
+    console.log("HI")
+    db.Poll.findByIdAndUpdate(id, {data: {
+      votes: 1}
+    }
+      )
       .then(PollData => {
-        res.json(PollData)
+        console.log(res.json(PollData))
+        // res.json(PollData)
       })
       .catch(err => {
         console.log(err)
