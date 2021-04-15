@@ -5,7 +5,7 @@ export default {
         return axios('/api/poll')
     },
     updatePoll: function(id) {
-        return axios('/api/poll/' + id)
+        return axios.put('/api/poll/' + id)
     },
 
     createPoll: function(pollData) {

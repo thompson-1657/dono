@@ -11,6 +11,8 @@ const Poll = () => {
 
   const [formObject, setFormObject] = useState({})
 
+  const [vote, setVote] = useState("")
+
   useEffect(() => {
     loadPolls()
   }, [])
@@ -26,12 +28,13 @@ const Poll = () => {
       .catch(err => console.log(err));
   };
 
-  function handleUpVoteClick(id) {
-
+  function handleUpVoteClick(id, votes) {
     // console.log(id)
-    API.updatePoll(id)
-      .then(res =>
-        console.log(res)
+    API.updatePoll(id, votes)
+      .then(res => {
+      
+        loadPolls()
+      }
       )
       .catch(err => console.log(err));
   }
@@ -43,7 +46,7 @@ const Poll = () => {
 
   function handlePollFormSubmit(event) {
     event.preventDefault()
-    console.log(formObject)
+    // console.log(formObject)
     if (formObject.text) {
       API.createPoll({
         text: formObject.text
@@ -66,7 +69,7 @@ const Poll = () => {
                   <Form.Label>
                     <p>{polls.text}</p>
                     <p>
-                      <img onClick={() => handleUpVoteClick(polls._id)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '} {polls.votes}</p>
+                      <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '} {polls.votes}</p>
                   </Form.Label>
                 </Form>
               </div>
