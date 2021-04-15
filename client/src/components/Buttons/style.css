@@ -5,7 +5,5 @@
   border-radius: 0 !important;
   font-family: "PT Sans Narrow", sans-serif;
   width: 100px;
-}
-.mr-3:hover {
-  background-color: #14829f;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 }
