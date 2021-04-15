@@ -1,10 +1,10 @@
 .donateCard {
-  height: 65vh;
-  width: 40vw;
+  height: 72vh;
+  width: 30vw;
   background: #fff;
   border-radius: 2px;
   overflow: auto;
-  margin-top: 80px;
+  margin-top: 40px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 }
 
@@ -12,7 +12,54 @@
   font-family: "PT Sans Narrow", sans-serif;
 }
 
+#cardHeader {
+  font-weight: bold;
+}
+
+#cardBody {
+  background-color: #d8e3ec;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
 img {
   height: 150px;
   width: 150px;
+  margin-bottom: 10px;
+}
+
+/* Photo album effect */
+.corners {
+  position: relative;
+  display: table;
+  max-width: 90%;
+  margin: 50px auto;
+}
+.corners img {
+  display: table-cell;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 8px;
+  background: white;
+  box-shadow: 0 0 2px #666;
+  box-sizing: border-box;
+}
+.corners:before,
+.corners:after {
+  position: absolute;
+  bottom: -20px;
+  right: -40px;
+  content: "";
+  height: 40px;
+  width: 80px;
+  background: #d8e3ec;
+  box-shadow: 0 -6px 9px -8px #333;
+  transform: rotate(-45deg);
+}
+.corners:after {
+  top: -20px;
+  left: -40px;
+  box-shadow: 0 6px 9px -8px #333;
 }

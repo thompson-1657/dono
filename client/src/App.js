@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Signup from "./pages/Signup";
 // import Login from "./pages/Login";
 // import PrivateRoute from "./components/PrivateRoute"
-import Home from './components/Main'
+import Home from './pages/Home'
 // import Poll from './components/Poll'
 // import Feed from './components/Feed'
 // import Chat from './components/Chat'

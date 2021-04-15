@@ -1,9 +1,8 @@
-h1 {
+#logo {
   font-size: 100px;
   font-family: "PT Sans Narrow", sans-serif;
-  /* margin-left: 270px; */
-  margin-left: 20%;
-  /* margin-top: 7px; */
+  margin-left: 50%;
   margin-top: 2%;
-  text-shadow: -2px 5px 5px grey;
+  text-shadow: -6px 6px 5px grey;
+  animation-duration: 4s;
 }

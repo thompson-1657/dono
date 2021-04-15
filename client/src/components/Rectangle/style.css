@@ -4,7 +4,7 @@
   height: 20vw;
   width: 100vw;
   background-color: #14829f;
-  margin-top: 15%;
+  margin-top: 10%;
   /* position: absolute;
   left: 50%;
   top: 50%;
@@ -18,11 +18,15 @@
   margin-left: 18vw;
   margin-top: 55px;
   font-size: 3vw;
+  animation-delay: 1s;
+  animation-duration: 2s;
 }
 .author {
   /* margin-right: 500px; */
   margin-left: 18vw;
   font-size: 3vw;
+  animation-delay: 1s;
+  animation-duration: 2s;
 }
 p {
   font-family: "PT Sans Narrow", sans-serif;

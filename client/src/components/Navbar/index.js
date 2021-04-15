@@ -16,16 +16,16 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
          <ul className="navbar-nav mb-3 mb-lg-0">
             <li className="nav-item">
-                 <Link to="/home" className="nav-link" aria-current="page" href="#">home</Link>
+                 <Link to="/home" className="nav-link" aria-current="page" href="#">hōme</Link>
             </li>
              <li className="nav-item">
-                <Link to="/donate" className="nav-link" aria-current="page" href="#">donate</Link>
+                <Link to="/donate" className="nav-link" aria-current="page" href="#">dōnate</Link>
              </li>
             <li className="nav-item">
-                <Link to="/connect" className="nav-link" aria-current="page" href="#">connect</Link>
+                <Link to="/connect" className="nav-link" aria-current="page" href="#">cōnnect</Link>
             </li>
             <li className="nav-item">
-                <Link to="/" className="nav-link" aria-current="page" href="#">logout</Link>
+                <Link to="/" className="nav-link" aria-current="page" href="#">lōgōut</Link>
             </li>
 
          </ul>

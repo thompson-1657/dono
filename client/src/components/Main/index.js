@@ -11,7 +11,7 @@ import Connect from '../Connect'
 import Navbar from '../Navbar'
 
 
-function Home() {
+function Main() {
     return( 
     <>
     <Navbar />
@@ -41,4 +41,4 @@ function Home() {
 )
 }
 
-export default Home
+export default Main

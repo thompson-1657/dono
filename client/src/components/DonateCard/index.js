@@ -12,11 +12,11 @@ const DonateCard = (props) => (
 
   <Card className=" card text-center donateCard">
     <div className="overflow">
-  <Card.Header>{props.title}</Card.Header>
-  <Card.Body>
+  <Card.Header id="cardHeader">{props.title}</Card.Header>
+  <Card.Body id="cardBody">
     <Card.Title></Card.Title>
     <Card.Text>
-      <div>
+      <div className="corners">
     <img src={props.image} alt={props.name} /></div>
     <div className="cardText">{props.description}</div>
     </Card.Text>
