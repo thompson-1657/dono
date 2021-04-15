@@ -39,7 +39,7 @@ router.route('/api/donate')
 
 router.route('/api/poll')
     .get(pollController.getPolls)
-    // .post(pollController.createPolls)
+    .post(pollController.createPoll)
 
 router.route('/api/channel')
     .get(channelController.getChannels)

@@ -6,6 +6,9 @@ export default {
     },
     updatePoll: function(id) {
         return axios('/api/poll/' + id)
-    }
+    },
 
+    createPoll: function(pollData) {
+        return axios.post("/api/poll", pollData);
+      }
 }

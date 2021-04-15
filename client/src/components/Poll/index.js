@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
+
 import './style.css'
 import API from '../../utils/API'
 
@@ -8,7 +9,8 @@ const Poll = () => {
 
   const [poll, setPoll] = useState([])
 
-  
+  const [formObject, setFormObject] = useState({})
+
   useEffect(() => {
     loadPolls()
   }, [])
@@ -33,6 +35,23 @@ const Poll = () => {
       )
       .catch(err => console.log(err));
   }
+
+  function handleFormChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+  };
+
+  function handlePollFormSubmit(event) {
+    event.preventDefault()
+    console.log(formObject)
+    if (formObject.text) {
+      API.createPoll({
+        text: formObject.text
+      })
+      .then(res => loadPolls())
+        .catch(err => console.log(err));
+    }
+  }
   return (
     <>
       {poll.length ? (
@@ -49,11 +68,6 @@ const Poll = () => {
                     <p>
                       <img onClick={() => handleUpVoteClick(polls._id)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '} {polls.votes}</p>
                   </Form.Label>
-
-                  {/* <Form.Check
-                    id={polls.text}
-                    label={polls.votes}
-                  /> */}
                 </Form>
               </div>
             )
@@ -62,7 +76,24 @@ const Poll = () => {
       ) : (
         <h3>No Polls to Display</h3>
       )}
+      <div>
+        Add a poll idea!
+      </div>
+      <Form>
+        <Form.Group>
+          <Form.Control name="text" 
+          onChange={handleFormChange} 
+          size="lg" type="text" placeholder="Food, supplies, etc." />
+        </Form.Group>
+        <Button 
+        onClick={handlePollFormSubmit} 
+        variant="primary" type="submit"
+        
+        >
+          Submit
+        </Button>
 
+      </Form>
     </>
   )
 
