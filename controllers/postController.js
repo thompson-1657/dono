@@ -33,9 +33,13 @@ module.exports = {
       })
   },
   updatePost: function(req, res) {
+    console.log(req.body.chats)
     const { id } = req.params
-    db.Post.findByIdAndUpdate(id, req.body, { new: true })
+    const chats = req.body.chats
+    console.log(id, chats)
+    db.Post.findByIdAndUpdate({_id: id} , {$push: {chats:chats}})
       .then(PostData => {
+        // console.log("hi")
         res.json(PostData)
       })
       .catch(err => {

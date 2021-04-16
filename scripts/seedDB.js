@@ -7,10 +7,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dono_db");
 const postsSeed = [
     {
         text: "I would like to collect coats in my neighborhood",
+        chats: [
+            "I have a coat", "I can help collect some too"
+        ],
         date: new Date(Date.now())
     },
     {
         text: "I want to donate food this weekend at my restaurant",
+        chats: [
+            "I will share with my friends", "Thank you, looking forward to lunch!"
+        ],
         date: new Date(Date.now())
     }
 ]

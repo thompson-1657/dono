@@ -13,5 +13,9 @@ export default {
     },
     getPosts: function() {
         return axios('/api/post')
-    }
+    },
+
+    updatePost: function(id, chats) {
+        return axios.put('/api/post/' + id, chats)
+    },
 }

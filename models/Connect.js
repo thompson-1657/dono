@@ -1,16 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const postSchema = new Schema({
+const connectSchema = new Schema({
     text: {
         type: String,
-        required: 'All posts require text'
+        required: 'All connects require a title'
     },
-    chats: [
-        {
-            type: String
-        }
-    ],
     date: {
         type: Date,
         default: Date.now()
@@ -27,6 +22,6 @@ const postSchema = new Schema({
 
 })
 
-const Post = mongoose.model('Post', postSchema)
+const Connect = mongoose.model('Connect', connectSchema)
 
-module.exports = Post
+module.exports = Connect
