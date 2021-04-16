@@ -24,7 +24,7 @@ function Main() {
     </Row>
 
     <Row>
-        <Col sm={3}>
+    <Col sm={3}>
         <Poll />
         </Col>
         <Col sm={6}>

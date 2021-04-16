@@ -10,5 +10,8 @@ export default {
 
     createPoll: function(pollData) {
         return axios.post("/api/poll", pollData);
-      }
+    },
+    getPosts: function() {
+        return axios('/api/post')
+    }
 }
