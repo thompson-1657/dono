@@ -8,19 +8,22 @@ export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const { signup, currentUser } = useAuth()
-    const mainPage = useHistory()
+    const history = useHistory()
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        signup(emailRef.current.value, passwordRef.current.value)
-        mainPage.push("/home")
+        try {
+           await signup(emailRef.current.value, passwordRef.current.value);
+            history.push("/home")
+        } catch{
+            console.log("error")
+        }
     }
     return (
         <>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Signup</h2>
-                    { currentUser && currentUser.email}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>

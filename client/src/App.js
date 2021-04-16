@@ -38,7 +38,7 @@ function App() {
                     </Route>
                     <PrivateRoute path='/connect' component={Connect} />
                     <PrivateRoute path='/donate' component={Donate} />
-                    <PrivateRoute path='/home' component={Home} />
+                    <PrivateRoute exact path='/home' component={Home} />
                     </Switch>
                 </AuthProvider>
             </Router>

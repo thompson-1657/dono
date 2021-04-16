@@ -1,26 +1,29 @@
 import React, { useRef } from "react"
 import { Form, Button, Card } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContexts"
-import {Link, useHistory} from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 
-export default function Login(){
+export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const { login, currentUser } = useAuth()
     const history = useHistory()
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        login(emailRef.current.value, passwordRef.current.value)
-        history.push("/home")
+        try {
+           await login(emailRef.current.value, passwordRef.current.value);
+            history.push("/home")
+        } catch{
+            console.log("error")
+        }
     }
     return (
         <>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Login</h2>
-                    { currentUser && currentUser.email}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
@@ -35,7 +38,7 @@ export default function Login(){
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                <Link to="/signup">Sign up</Link> 
+                <Link to="/signup">Sign up</Link>
             </div>
         </>
     )
