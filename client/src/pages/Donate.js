@@ -4,7 +4,7 @@ import DonateCard from '../components/DonateCard'
 // import {Col, Container, Row} from 'react-bootstrap'
 import donateCardData from '../donateCardData'
 import Navbar from '../components/Navbar' 
-
+import DonateForm from '../components/DonateForm'
 
 class Donate extends Component {
   state = {
