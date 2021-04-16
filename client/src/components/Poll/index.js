@@ -11,8 +11,6 @@ const Poll = () => {
 
   const [formObject, setFormObject] = useState({})
 
-  const [vote, setVote] = useState("")
-
   useEffect(() => {
     loadPolls()
   }, [])
