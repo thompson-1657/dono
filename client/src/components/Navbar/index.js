@@ -1,8 +1,13 @@
 import React from "react";
 import { Link} from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContexts"
 import "./style.css";
 
 function Navbar() {
+    const { logout } = useAuth()
+
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
@@ -25,7 +30,7 @@ function Navbar() {
                 <Link to="/connect" className="nav-link" aria-current="page" href="#">cōnnect</Link>
             </li>
             <li className="nav-item">
-                <Link to="/" className="nav-link" aria-current="page" href="#">lōgōut</Link>
+                <Link to="/" className="nav-link" aria-current="page" href="#" onClick={()=> logout()}>lōgōut</Link>
             </li>
 
          </ul>

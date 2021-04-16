@@ -1,14 +1,14 @@
 import React from "react";
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { AuthProvider } from "./contexts/AuthContexts"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContexts"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import Main from "./pages/Main";
 // import Navbar from "./components/Navbar";
-// import Signup from "./pages/Signup";
-// import Login from "./pages/Login";
-// import PrivateRoute from "./components/PrivateRoute"
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import PrivateRoute from "./components/PrivateRoute"
 import Home from './pages/Home'
 // import Poll from './components/Poll'
 // import Feed from './components/Feed'
@@ -23,34 +23,26 @@ import Connect from './pages/Connect'
 function App() {
     return (
         <>
-      <Router>
-      <Route exact path='/'>
-          <PreLogin />
-      </Route>
-      <Route path='/connect'>
-           <Connect />
-      </Route>
-      <Route path='/donate'>
-          <Donate />
-      </Route>
-          <Route path='/home'>
-          <Home />
-      </Route>
-  </Router>
-  {/* <Router>
-      <div>
-          <Navbar /> 
-         <AuthProvider>
-              <div className="w-100" style={{ maxWidth: "400px" }}>
-                  <PrivateRoute exact path="/" component={Main} />
-                  <Route path="/signup" component={Signup} />
-                  <Route path="/login" component={Login} />
-              </div>
-      </AuthProvider>
-  </div>
-  </Router> */}
 
-</>
+            <Router>
+                <AuthProvider>
+                    <Switch>
+                    <Route exact path='/'>
+                        <PreLogin />
+                    </Route>
+                    <Route path='/signUp'>
+                        <Signup />
+                    </Route>
+                    <Route path='/login'>
+                        <Login />
+                    </Route>
+                    <PrivateRoute path='/connect' component={Connect} />
+                    <PrivateRoute path='/donate' component={Donate} />
+                    <PrivateRoute path='/home' component={Home} />
+                    </Switch>
+                </AuthProvider>
+            </Router>
+        </>
     )
 }
 

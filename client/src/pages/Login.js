@@ -8,12 +8,12 @@ export default function Login(){
     const emailRef = useRef()
     const passwordRef = useRef()
     const { login, currentUser } = useAuth()
-    const mainPage = useHistory()
+    const history = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault();
         login(emailRef.current.value, passwordRef.current.value)
-        mainPage.push("/")
+        history.push("/home")
     }
     return (
         <>
