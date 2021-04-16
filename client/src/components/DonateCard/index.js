@@ -1,6 +1,8 @@
 import React from 'react'
 import {Card} from 'react-bootstrap'
 import Buttons from "../Buttons"
+import DonateForm from '../DonateForm'
+import DonateIcon from '../DonateIcon'
 
 import './style.css'
 
@@ -20,9 +22,12 @@ const DonateCard = (props) => (
     <img src={props.image} alt={props.name} /></div>
     <div className="cardText">{props.description}</div>
     </Card.Text>
+    <DonateIcon />
+    <DonateForm />
     <Buttons >Donate</Buttons>
   </Card.Body>
   </div>
+ 
 </Card>
   </>
   )
