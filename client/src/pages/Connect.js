@@ -5,16 +5,17 @@ import API from '../utils/API'
 
 import Chat from '../components/Chat'
 import Navbar from '../components/Navbar'
-import Feed from '../components/Feed'
 
-const Connect = () => {
-  
-  
+const Connect = ({children}) => {
+
+
   const [post, setPosts] = useState([])
+
+
 
   useEffect(() => {
     loadPosts()
-  }, [])
+  }, [post])
 
   function loadPosts() {
     API.getPosts()
@@ -29,27 +30,36 @@ const Connect = () => {
 
   return (
     <>
-    <Container>
+      <Container>
         <Navbar />
         {post.length ? (
-        <div className="card">
-          {post.map(posts => {
-            return (
-              <Card className="main">
-                <Card.Body>{posts.date}</Card.Body>
-                <Card.Body>{posts.text}</Card.Body>
+          <div className="card">
+            {post.map(posts => {
+              return (
+                <Card key={posts._id} className="main">
+                  <Card.Body date={posts.date}>{posts.date}</Card.Body>
+                  <Card.Body text={posts.text}>{posts.text}</Card.Body>
+                  <Chat postId={posts._id} />
 
-              </Card>
-            )
-          })}
-        </div>
+                  {posts.chats.map(chat => {
+                    return (
+                      <ul>{chat}</ul>
+                    )
+                  })}
+                </Card>
+              )
+            })}
+          </div>
 
-      ) : (
-        <h3>No Posts to Display</h3>
-      )}
-        <Chat />
-        </Container>
+        ) : (
+          <h3>No Posts to Display</h3>
+        )}
+        {/* <Chat /> */}
+      </Container>
     </>
-    )}
-    
-      export default Connect
+  )
+}
+
+// onChange={handleFormChange}
+// onClick={() => handleSubmitClick(post._id)}
+export default Connect
