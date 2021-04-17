@@ -30,6 +30,9 @@ function Navbar() {
                 <Link to="/connect" className="nav-link" aria-current="page" href="#">cōnnect</Link>
             </li>
             <li className="nav-item">
+                <Link to="/message" className="nav-link" aria-current="page" href="#">message</Link>
+            </li>
+            <li className="nav-item">
                 <Link to="/" className="nav-link" aria-current="page" href="#" onClick={()=> logout()}>lōgōut</Link>
             </li>
 
