@@ -19,5 +19,8 @@ export default {
     },
     createDonation: function(donationData) {
         return axios.post("/api/donate", donationData)
-    }
+    },
+    getDonations: function() {
+        return axios('/api/donate')
+    },
 }

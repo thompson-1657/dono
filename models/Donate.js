@@ -12,6 +12,11 @@ const donateSchema = new Schema({
     typeOfDonation: {
         type: String,
     },
+    chats: [
+        {
+            type: String
+        }
+    ],
     date: {
         type: Date,
         default: Date.now()
