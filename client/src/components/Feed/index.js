@@ -25,6 +25,22 @@ const Feed = () => {
   };
 
 
+  const [donation, setDonations] = useState([])
+
+  useEffect(() => {
+    loadDonations()
+  }, [])
+
+  function loadDonations() {
+    API.getDonations()
+      .then(res =>
+        // console.log(res.data)
+        setDonations(res.data)
+
+      )
+      //   .then(console.log(data))
+      .catch(err => console.log(err));
+  };
   // function handleConnectSubmit(event) {
   //   event.preventDefault()
   //   console.log("click")
@@ -43,6 +59,7 @@ const Feed = () => {
               <Card className="main">
                 <Card.Body>{posts.date}</Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
+                {/* <Card.Body>{posts.description}</Card.Body> */}
 
                 <Link to="/connect"><Button 
                 // onClick={handleConnectSubmit}
@@ -62,7 +79,34 @@ const Feed = () => {
 
 
 
+<h2 className="posts">
+        Donation posts
+        </h2>
 
+      {donation.length ? (
+        <div className="card">
+          {donation.map(donations => {
+            return (
+              <Card className="main">
+                <Card.Body>{donations.date}</Card.Body>
+                <Card.Body>{donations.title}</Card.Body>
+                <Card.Body>{donations.description}</Card.Body>
+
+                <Link to="/connect"><Button 
+                // onClick={handleConnectSubmit}
+                as="input" 
+                type="submit" 
+                value="Connect" 
+                
+                /></Link>{' '}
+              </Card>
+            )
+          })}
+        </div>
+
+      ) : (
+        <h3>No Posts to Display</h3>
+      )}
 
 
     </>

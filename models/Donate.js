@@ -2,14 +2,21 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const donateSchema = new Schema({
-    text: {
+    title: {
         type: String,
         required: 'All donations require text'
     },
+    description: {
+        type: String,
+    },
     typeOfDonation: {
         type: String,
-        required: 'All donations require a selection between parishable or utility'
     },
+    chats: [
+        {
+            type: String
+        }
+    ],
     date: {
         type: Date,
         default: Date.now()

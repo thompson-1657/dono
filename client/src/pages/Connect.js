@@ -6,12 +6,10 @@ import API from '../utils/API'
 import Chat from '../components/Chat'
 import Navbar from '../components/Navbar'
 
-const Connect = ({children}) => {
+const Connect = ({ children }) => {
 
 
   const [post, setPosts] = useState([])
-
-
 
   useEffect(() => {
     loadPosts()
@@ -28,6 +26,24 @@ const Connect = ({children}) => {
       .catch(err => console.log(err));
   };
 
+  const [donation, setDonations] = useState([])
+
+  useEffect(() => {
+    loadDonations()
+  }, [donation])
+
+  function loadDonations() {
+    API.getDonations()
+      .then(res =>
+        // console.log(res.data)
+        setDonations(res.data)
+
+      )
+      //   .then(console.log(data))
+      .catch(err => console.log(err));
+  };
+
+
   return (
     <>
       <Container>
@@ -39,6 +55,8 @@ const Connect = ({children}) => {
                 <Card key={posts._id} className="main">
                   <Card.Body date={posts.date}>{posts.date}</Card.Body>
                   <Card.Body text={posts.text}>{posts.text}</Card.Body>
+                  {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
+
                   <Chat postId={posts._id} />
 
                   {posts.chats.map(chat => {
@@ -53,6 +71,32 @@ const Connect = ({children}) => {
 
         ) : (
           <h3>No Posts to Display</h3>
+        )}
+
+
+        {donation.length ? (
+          <div className="card">
+            {donation.map(donations => {
+              return (
+                <Card key={donations._id} className="main">
+                  <Card.Body date={donations.date}>{donations.date}</Card.Body>
+                  <Card.Body title={donations.title}>{donations.title}</Card.Body>
+                  <Card.Body description={donations.description}>{donations.description}</Card.Body>
+
+                  <Chat donationId={donations._id} />
+
+                  {donations.chats.map(chat => {
+                    return (
+                      <ul>{chat}</ul>
+                    )
+                  })}
+                </Card>
+              )
+            })}
+          </div>
+
+        ) : (
+          <h3>No donations to Display</h3>
         )}
         {/* <Chat /> */}
       </Container>
