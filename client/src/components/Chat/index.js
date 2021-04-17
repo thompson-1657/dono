@@ -6,7 +6,7 @@ import API from '../../utils/API'
 const Chat = (props) => {
   const [formObject, setFormObject] = useState({})
 
-  const handleSubmitClick = (id, chats) => {
+  const handleSubmitClickPost = (id, chats) => {
     // event.preventDefault()
     // const id = props.postId
     console.log(chats)
@@ -24,6 +24,18 @@ const Chat = (props) => {
     console.log(event.target.value)
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value })
+  }
+
+  const handleSubmitClickDonate = (id, chats) => {
+    // event.preventDefault()
+    // const id = props.postId
+    console.log(id)
+    
+    API.updateDonation(id, chats)
+    .then(res => {
+      console.log(id, chats)
+    })
+    .catch(err => console.log(err));
   }
 
 
@@ -50,7 +62,7 @@ return (
     <Button  as="input" 
     type="button" 
     value="Add to Chat"
-    onClick={() => handleSubmitClick(props.postId, formObject)}
+    onClick={ props.postId ? () => handleSubmitClickPost(props.postId, formObject) : () => handleSubmitClickDonate(props.donationId, formObject)}
      />{' '}
 
   </Form.Group>

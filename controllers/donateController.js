@@ -38,7 +38,7 @@ module.exports = {
     const { id } = req.params
     const chats = req.body.chats
     console.log(id, chats)
-    db.Donation.findByIdAndUpdate({_id: id} , {$push: {chats:chats}})
+    db.Donate.findByIdAndUpdate({_id: id} , {$push: {chats:chats}})
       .then(donationData => {
         // console.log("hi")
         res.json(donationData)

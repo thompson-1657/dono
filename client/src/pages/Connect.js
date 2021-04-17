@@ -85,13 +85,13 @@ const Connect = ({ children }) => {
                   <Card.Body title={donations.title}>{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
-                  {/* <Chat donationId={donations._id} /> */}
+                  <Chat donationId={donations._id} />
 
-                  {/* {donations.chats.map(chat => {
+                  {donations.chats.map(chat => {
                     return (
                       <ul>{chat}</ul>
                     )
-                  })} */}
+                  })}
                 </Card>
               )
             })}
