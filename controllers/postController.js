@@ -3,8 +3,8 @@ const db = require('../models')
 module.exports = {
   createPost: function(req, res) {
     db.Post.create(req.body)
-      .then(PostData => {
-        res.json(PostData)
+      .then(postData => {
+        res.json(postData)
       })
       .catch(err => {
         console.log(err)

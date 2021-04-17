@@ -11,7 +11,7 @@ const Feed = () => {
 
   useEffect(() => {
     loadPosts()
-  }, [])
+  }, [post])
 
   function loadPosts() {
     API.getPosts()

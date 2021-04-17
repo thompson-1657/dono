@@ -23,4 +23,10 @@ export default {
     getDonations: function() {
         return axios('/api/donate')
     },
+    updateDonation: function(id, chats) {
+        return axios.put('/api/donate/' + id, chats)
+    },
+    createPost: function(postData) {
+        return axios.post("/api/post", postData);
+    },
 }

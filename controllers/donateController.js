@@ -34,10 +34,14 @@ module.exports = {
       })
   },
   updateDonation: function(req, res) {
+    console.log(req.body.chats)
     const { id } = req.params
-    db.Donate.findByIdAndUpdate(id, req.body, { new: true })
-      .then(DonateData => {
-        res.json(DonateData)
+    const chats = req.body.chats
+    console.log(id, chats)
+    db.Donation.findByIdAndUpdate({_id: id} , {$push: {chats:chats}})
+      .then(donationData => {
+        // console.log("hi")
+        res.json(donationData)
       })
       .catch(err => {
         console.log(err)
