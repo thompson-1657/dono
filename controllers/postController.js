@@ -32,6 +32,7 @@ module.exports = {
         res.status(500).send()
       })
   },
+  
   updatePost: function(req, res) {
     console.log(req.body.chats)
     const { id } = req.params
