@@ -7,7 +7,7 @@ import {Link, useHistory } from "react-router-dom"
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { signup, currentUser } = useAuth()
+    const { signup } = useAuth()
     const history = useHistory()
 
     async function handleSubmit(e) {

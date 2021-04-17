@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth } from "../firebase"
+import { auth, db } from "../firebase"
+import "firebase/firestore"
 
 const AuthContexts = React.createContext()
 
@@ -31,6 +32,14 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
+    function saveUserToFirestore(user){ 
+        const userRef = db.collection("users");
+        userRef.doc(user.uid).set({
+            uid: user.uid,
+            email: user.email
+        })
+    }
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -44,7 +53,8 @@ export function AuthProvider({ children }) {
         currentUser,
         login,
         signup,
-        logout
+        logout,
+        saveUserToFirestore,
     }
 
 
