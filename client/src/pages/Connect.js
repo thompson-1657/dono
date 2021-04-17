@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Card, Button } from 'react-bootstrap'
+import ChatRoom from "../components/ChatRoom"
 import API from '../utils/API'
 
 
@@ -72,10 +73,10 @@ const Connect = ({ children }) => {
           </div>
 
         ) : (
-          <h3>No Posts to Display</h3>
-        )}
-        
+            <h3>No Posts to Display</h3>
+          )}
 
+       
         {donation.length ? (
           <div className="card">
             {donation.map(donations => {
@@ -98,9 +99,10 @@ const Connect = ({ children }) => {
           </div>
 
         ) : (
-          <h3>No donations to Display</h3>
-        )}
+            <h3>No donations to Display</h3>
+          )}
         {/* <Chat /> */}
+
       </Container>
     </>
   )

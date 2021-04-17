@@ -15,8 +15,10 @@ import Home from './pages/Home'
 // import Chat from './components/Chat'
 // import Menu from './components/Menu'
 import Donate from './pages/Donate'
+import ChatRooms from './pages/ChatRooms'
 import PreLogin from './pages/PreLogin'
 import Connect from './pages/Connect'
+import ChatRoom from "./pages/ChatRooms";
 // library.add(fab)
 
 
@@ -36,6 +38,7 @@ function App() {
                     <Route path='/login'>
                         <Login />
                     </Route>
+                    <PrivateRoute path='/message' component={ChatRoom} />
                     <PrivateRoute path='/connect' component={Connect} />
                     <PrivateRoute path='/donate' component={Donate} />
                     <PrivateRoute exact path='/home' component={Home} />
