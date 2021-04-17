@@ -31,7 +31,7 @@ router.route('/api/channel/:id')
 
 router.route('/api/post')
     .get(postController.getPosts)
-    // .post(postController.createPost)
+    .post(postController.createPost)
 
 router.route('/api/donate')
     .get(donateController.getDonations)

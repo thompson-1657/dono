@@ -11,6 +11,7 @@ const Chat = (props) => {
     // const id = props.postId
     console.log(chats)
     
+    
     API.updatePost(id, chats)
     .then(res => {
       console.log(id, chats)
@@ -20,11 +21,15 @@ const Chat = (props) => {
 
   const handleFormChange = (event) => {
     event.preventDefault()
+    console.log(event.target.value)
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value })
   }
 
+
+
 return (
+  
     <Row>
         <Col md={2}>
 
