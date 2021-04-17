@@ -39,6 +39,8 @@ const Connect = ({children}) => {
                 <Card key={posts._id} className="main">
                   <Card.Body date={posts.date}>{posts.date}</Card.Body>
                   <Card.Body text={posts.text}>{posts.text}</Card.Body>
+                  {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
+
                   <Chat postId={posts._id} />
 
                   {posts.chats.map(chat => {

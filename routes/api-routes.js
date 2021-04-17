@@ -35,7 +35,7 @@ router.route('/api/post')
 
 router.route('/api/donate')
     .get(donateController.getDonations)
-    // .post(donateController.createDonation)
+    .post(donateController.createDonation)
 
 router.route('/api/poll')
     .get(pollController.getPolls)

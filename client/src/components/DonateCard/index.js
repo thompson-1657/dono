@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import {Card} from 'react-bootstrap'
 import Buttons from "../Buttons"
 import DonateForm from '../DonateForm'
@@ -9,7 +9,10 @@ import './style.css'
 
 
 
-const DonateCard = (props) => (
+const DonateCard = (props) => {
+
+
+return (
   <>
 
   <Card className=" card text-center donateCard">
@@ -24,12 +27,13 @@ const DonateCard = (props) => (
     </Card.Text>
     <DonateIcon />
     <DonateForm />
-    <Buttons >Donate</Buttons>
+    {/* <Buttons 
+    >Donate</Buttons> */}
   </Card.Body>
   </div>
  
 </Card>
   </>
   )
-
+}
   export default DonateCard

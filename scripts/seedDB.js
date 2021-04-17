@@ -32,12 +32,14 @@ const userSeed =
 
 const donateSeed = [
     {
-        text: "I have a crib to donate",
+        title: "Crib",
+        description: "Ikea cribe, 2 years old",
         typeOfDonation: "Utility",
         date: new Date(Date.now()),
     },
     {
-        text: "I have extra formula",
+        title: "Formula",
+        description: "Newborn, target brand",
         typeOfDonation: "Parishable",
         date: new Date(Date.now()),
     }

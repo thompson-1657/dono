@@ -2,9 +2,10 @@ const db = require('../models')
 
 module.exports = {
   createDonation: function(req, res) {
+    console.log("hi")
     db.Donate.create(req.body)
-      .then(DonateData => {
-        res.json(DonateData)
+      .then(donationData => {
+        res.json(donationData)
       })
       .catch(err => {
         console.log(err)

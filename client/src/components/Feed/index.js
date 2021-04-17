@@ -43,6 +43,7 @@ const Feed = () => {
               <Card className="main">
                 <Card.Body>{posts.date}</Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
+                {/* <Card.Body>{posts.description}</Card.Body> */}
 
                 <Link to="/connect"><Button 
                 // onClick={handleConnectSubmit}
