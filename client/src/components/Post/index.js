@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 
 import './style.css'
 import API from '../../utils/API'
+import Buttons from "../Buttons"
 
 
 
@@ -34,13 +35,13 @@ const Post = () => {
                     onChange={handleFormChange}
                     size="lg" type="text" placeholder="Add a community post!" />
             </Form.Group>
-            <Button
+            <Buttons
                 onClick={handlePostFormSubmit}
                 variant="primary" type="submit"
 
             >
                 Submit
-    </Button>
+    </Buttons>
 
         </Form>
     )

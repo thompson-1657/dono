@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {Form, Col, Row, Button} from 'react-bootstrap'
 import './style.css'
 import API from '../../utils/API'
+import Buttons from "../Buttons"
 
 const Chat = (props) => {
   const [formObject, setFormObject] = useState({})
@@ -59,11 +60,11 @@ return (
     onChange={handleFormChange}
     {...props}    
     />
-    <Button  as="input" 
+    <Buttons  as="input" 
     type="button" 
     value="Add to Chat"
     onClick={ props.postId ? () => handleSubmitClickPost(props.postId, formObject) : () => handleSubmitClickDonate(props.donationId, formObject)}
-     />{' '}
+     >Add to Chat</Buttons>{' '}
 
   </Form.Group>
   </Form>

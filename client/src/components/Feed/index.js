@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import './style.css'
 import API from '../../utils/API'
+import Buttons from "../Buttons"
 
 
 const Feed = () => {
@@ -61,13 +62,13 @@ const Feed = () => {
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
 
-                <Link to="/connect"><Button 
+                <Link to="/connect"><Buttons 
                 // onClick={handleConnectSubmit}
                 as="input" 
                 type="submit" 
                 value="Connect" 
                 
-                /></Link>{' '}
+                >Connect</Buttons></Link>{' '}
               </Card>
             )
           })}
