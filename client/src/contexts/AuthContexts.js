@@ -15,6 +15,11 @@ export function AuthProvider({ children }) {
         if (user) {
             // User logged in already or has just logged in.
             console.log(user.uid);
+            const userRef = db.collection("users");
+            userRef.doc(user.uid).set({
+                uid: user.uid,
+                email: user.email
+            })
         } else {
             // User not logged in or has just logged out.
         }
