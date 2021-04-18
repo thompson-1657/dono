@@ -1,15 +1,15 @@
 .main {
-    text-align: center;
-    padding: 15px;
+  text-align: center;
+  padding: 15px;
 }
 
 .card {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .posts {
-    text-align: center;
-    background-color: white;
-    margin-top: 15px;
-    padding: 10px;
+  text-align: center;
+  background-color: white;
+  margin-top: 15px;
+  padding: 10px;
 }

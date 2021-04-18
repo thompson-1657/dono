@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 
 import './style.css'
 import API from '../../utils/API'
+import Buttons from "../Buttons"
 
 
 const Poll = () => {
@@ -86,13 +87,13 @@ const Poll = () => {
           onChange={handleFormChange} 
           size="lg" type="text" placeholder="Food, supplies, etc." />
         </Form.Group>
-        <Button 
+        <Buttons 
         onClick={handlePollFormSubmit} 
         variant="primary" type="submit"
         
         >
           Submit
-        </Button>
+        </Buttons>
 
       </Form>
     </>

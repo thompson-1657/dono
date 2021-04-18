@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Card, Button } from 'react-bootstrap'
-import ChatRoom from "../components/ChatRoom"
+import { Container, Card } from 'react-bootstrap'
+// import ChatRoom from "../components/ChatRoom"
 import API from '../utils/API'
+import "../App.css"
 
 
 import Chat from '../components/Chat'
 import Navbar from '../components/Navbar'
-import Post from '../components/Post'
+
+// import Post from '../components/Post'
 
 const Connect = ({ children }) => {
 
@@ -48,8 +50,8 @@ const Connect = ({ children }) => {
 
   return (
     <>
-      <Container>
         <Navbar />
+      <Container className="postContainer">
         {post.length ? (
           <div className="card">
             {post.map(posts => {
