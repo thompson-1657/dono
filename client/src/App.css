@@ -4,7 +4,8 @@ html {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
+  overflow: hidden;
+
   background-color: #d8e3ec;
 }
 
@@ -17,4 +18,8 @@ html {
   position: absolute;
   right: 25%;
   top: 25%;
+}
+
+.loginLink {
+  color: #14829f;
 }

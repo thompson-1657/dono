@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { Form, Button, Card } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContexts"
 import { Link, useHistory } from "react-router-dom"
+import Buttons from "../components/Buttons"
 
 
 export default function Login() {
@@ -21,7 +22,7 @@ export default function Login() {
     }
     return (
         <>
-            <Card>
+            <Card className="container">
                 <Card.Body>
                     <h2 className="text-center mb-4">Login</h2>
                     <Form onSubmit={handleSubmit}>
@@ -33,12 +34,12 @@ export default function Login() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
-                        <Button className="w-100" type="submit">Login</Button>
+                        <Buttons className="w-100" type="submit">Login</Buttons>
                     </Form>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                <Link to="/signup">Sign up</Link>
+                <Link className="loginLink" to="/signup">Sign up</Link>
             </div>
         </>
     )

@@ -2,6 +2,7 @@ import React,{ useRef } from "react"
 import { Form, Button, Card } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContexts"
 import {Link, useHistory } from "react-router-dom"
+import Buttons from "../components/Buttons"
 
 
 export default function Signup() {
@@ -21,7 +22,7 @@ export default function Signup() {
     }
     return (
         <>
-            <Card>
+            <Card className="container">  
                 <Card.Body>
                     <h2 className="text-center mb-4">Signup</h2>
                     <Form onSubmit={handleSubmit}>
@@ -33,12 +34,12 @@ export default function Signup() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
-                        <Button className="w-100" type="submit">SignUp</Button>
+                        <Buttons className="w-100" type="submit">SignUp</Buttons>
                     </Form>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                already have an account <Link to="/login">Log in</Link> 
+                already have an account <Link className="loginLink" to="/login">Log in</Link> 
             </div>
         </>
     )
