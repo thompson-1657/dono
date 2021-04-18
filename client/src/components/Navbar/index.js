@@ -2,7 +2,7 @@ import React from "react";
 import { Link} from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContexts"
 import "./style.css";
-
+import Location from '../Location'
 function Navbar() {
     const { logout } = useAuth()
 
@@ -35,7 +35,7 @@ function Navbar() {
             <li className="nav-item">
                 <Link to="/" className="nav-link" aria-current="page" href="#" onClick={()=> logout()}>lōgōut</Link>
             </li>
-
+            <li><Location /></li>
          </ul>
         </div>
         </div>
