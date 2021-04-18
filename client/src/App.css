@@ -4,7 +4,7 @@ html {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
+  overflow: auto;
 
   background-color: #d8e3ec;
 }
