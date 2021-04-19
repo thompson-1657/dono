@@ -35,7 +35,7 @@ function Navbar() {
             <li className="nav-item">
                 <Link to="/" className="nav-link" aria-current="page" href="#" onClick={()=> logout()}>lōgōut</Link>
             </li>
-            {/* <li><Location /></li> */}
+            <li><Location /></li>
          </ul>
         </div>
         </div>
