@@ -14,7 +14,7 @@ class Donate extends Component {
     return(
 <>
 <Navbar />
-<div className="container">
+<div className=" container donateContainer">
   <div className="row">
   {this.state.donateCardData.map(donate =>{
     return(

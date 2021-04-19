@@ -57,7 +57,7 @@ const Feed = () => {
         <div className="card">
           {post.map(posts => {
             return (
-              <Card className="main conatiner">
+              <Card className="main">
                 <Card.Body>{posts.date}</Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
