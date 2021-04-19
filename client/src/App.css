@@ -1,7 +1,7 @@
 body,
 html {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0px;
   padding: 0px;
   overflow: auto;
@@ -12,7 +12,6 @@ html {
 #root {
   background-color: #d8e3ec;
   width: 100%;
-  height: 100%;
 }
 .button-div {
   position: absolute;
@@ -22,4 +21,8 @@ html {
 
 .loginLink {
   color: #14829f;
+}
+
+.donateContainer {
+  height: 100vh;
 }

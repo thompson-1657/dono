@@ -38,6 +38,7 @@ const Post = () => {
             <Buttons
                 onClick={handlePostFormSubmit}
                 variant="primary" type="submit"
+                id="pollSubmit"
 
             >
                 Submit
