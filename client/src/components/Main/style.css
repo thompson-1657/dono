@@ -1,10 +1,5 @@
-.top {
-  text-align: center;
-  margin: 15px;
-  padding-top: 15px;
-  font-size: 54px;
-}
-
-.main {
+.home {
   background-color: #d8e3ec;
+  text-align: center;
+  padding: 15px;
 }

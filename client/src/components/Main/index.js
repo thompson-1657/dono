@@ -16,7 +16,7 @@ function Main() {
     <>
     <Navbar />
 
-    <div className="main">    
+    <div className="home">    
 
     <Row className="head">
     

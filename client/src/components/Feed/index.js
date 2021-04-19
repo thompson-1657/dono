@@ -57,7 +57,7 @@ const Feed = () => {
         <div className="card">
           {post.map(posts => {
             return (
-              <Card className="cardMain">
+              <Card className="main">
                 <Card.Body>{posts.date}</Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
@@ -88,7 +88,7 @@ const Feed = () => {
         <div className="card">
           {donation.map(donations => {
             return (
-              <Card className="cardMain">
+              <Card className="main">
                 <Card.Body>{donations.date}</Card.Body>
                 <Card.Body>{donations.title}</Card.Body>
                 <Card.Body>{donations.description}</Card.Body>
