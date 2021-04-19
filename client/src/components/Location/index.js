@@ -10,7 +10,7 @@ const Location = () => {
 
   useEffect(() => {
     locationAPI()
-  }, [location])
+  }, [])
 
   function locationAPI() {
     var options = {
