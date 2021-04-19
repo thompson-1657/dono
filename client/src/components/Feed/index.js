@@ -6,7 +6,7 @@ import API from '../../utils/API'
 import Buttons from "../Buttons"
 
 
-const Feed = () => {
+const Feed = (props) => {
 
   const [post, setPosts] = useState([])
 
@@ -30,7 +30,7 @@ const Feed = () => {
 
   useEffect(() => {
     loadDonations()
-  }, [])
+  }, [donation])
 
   function loadDonations() {
     API.getDonations()
@@ -46,6 +46,24 @@ const Feed = () => {
   //   event.preventDefault()
   //   console.log("click")
   // }
+
+  const handleDeletePostClick = (id) => {
+    // console.log("click")
+    // console.log(id)
+    API.deletePost(id)
+    .then(res => {
+      console.log(res)
+    })
+  }
+
+  const handleDeleteDonationClick = (id) => {
+    // console.log("click")
+    // console.log(id)
+    API.deleteDonation(id)
+    .then(res => {
+      console.log(res)
+    })
+  }
 
   return (
     <>
@@ -69,6 +87,9 @@ const Feed = () => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
+                  <p><img name="id" 
+                  onClick={() => handleDeletePostClick(posts._id)} 
+                  src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '} </p>
               </Card>
             )
           })}
@@ -100,6 +121,9 @@ const Feed = () => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
+                    <p><img name="id" 
+                  onClick={() => handleDeleteDonationClick(donations._id)} 
+                  src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '} </p>
               </Card>
             )
           })}

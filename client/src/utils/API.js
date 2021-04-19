@@ -29,4 +29,10 @@ export default {
     createPost: function(postData) {
         return axios.post("/api/post", postData);
     },
+    deletePost: function(id){
+        return axios.delete('/api/post/' + id)
+    },
+    deleteDonation: function(id){
+        return axios.delete('/api/donate/' + id)
+    }
 }
