@@ -13,29 +13,45 @@ function ChatRoom() {
     const { currentUser } = useAuth()
     const [room, setRoom] = useState(currentUser.email)
     const [formValue, setFormValue] = useState('');
-
+    const [userId, setUserId] = useState(currentUser.uid)
+    console.log(userId)
     console.log(currentUser.email)
+
+    const chatterID = currentUser.email;
+    const chateeID = room;
+    const chatIDpre = [];
+    chatIDpre.push(chatterID);
+    chatIDpre.push(chateeID);
+    chatIDpre.sort();
+    chatIDpre.join('_');
+
+
+
+
 
     const dummy = useRef();
 
-    const messagesRef = db.collection('messages').doc(room).collection("messages")
-    const msgRef = db.collection('messages')
+    const messagesRef = db.collection('users').doc(userId).collection(room)
+    const messageRef = db.collection('users').doc(room).collection(userId)
     const usersRef = db.collection('users');
-    const roomsRef = db.collection('rooms');
+    const newMesg = usersRef
+        .doc(chatIDpre.join('_'))
+        .collection("room")
+        .orderBy('createdAt')
+        .limit(10)
 
-    const query = messagesRef.orderBy('createdAt').limit(100);
+    const query = messagesRef.orderBy('createdAt').limit(100) || messageRef.orderBy('createdAt').limit(100)
     console.log(query)
     const userQuery = usersRef.orderBy('email').limit(100);
-    // const roomQuery = roomsRef.orderBy('id').collection("msg").limit(100);
 
-    const [messages] = useCollectionData(query, { idField: room });
+    const [messages] = useCollectionData(newMesg, { idField: room });
     console.log(messages)
 
     const [users] = useCollectionData(userQuery);
     console.log(users)
 
-    // const [room] = useCollectionData(roomQuery)
-    // console.log(room)
+
+
 
     const handleGroupClick = async (e) => {
         e.preventDefault()
@@ -43,13 +59,15 @@ function ChatRoom() {
         console.log(room)
     }
 
+
+
     const sendMessage = async (e) => {
         e.preventDefault();
         const { uid, email } = currentUser;
         console.log(uid)
-        await msgRef
-            .doc(room)
-            .collection("messages")
+        await usersRef
+            .doc(chatIDpre.join('_'))
+            .collection("room")
             .add({
                 text: formValue,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
