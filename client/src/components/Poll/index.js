@@ -52,7 +52,8 @@ const Poll = () => {
     // console.log(formObject)
     if (formObject.text) {
       API.createPoll({
-        text: formObject.text
+        text: formObject.text,
+        firebaseId: currentUser.uid
       })
       .then(res => loadPolls())
         .catch(err => console.log(err));
