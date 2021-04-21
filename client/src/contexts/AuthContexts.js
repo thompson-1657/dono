@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
     auth.onAuthStateChanged((user) => {
         if (user) {
             // User logged in already or has just logged in.
-            console.log(user.uid);
+            
             const userRef = db.collection("users");
             userRef.doc(user.uid).set({
                 uid: user.uid,
@@ -43,6 +43,8 @@ export function AuthProvider({ children }) {
             uid: user.uid,
             email: user.email
         })
+        console.log(user.uid);
+        console.log(user.email)
     }
 
 
