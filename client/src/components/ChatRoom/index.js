@@ -1,15 +1,38 @@
+
 import React, { useRef, useState, useEffect } from "react"
 import { db } from "../../firebase"
 import { useAuth } from "../../contexts/AuthContexts"
 import { useCollectionData, useCollectionOnce } from "react-firebase-hooks/firestore"
-import { FormControl, Button, InputGroup } from "react-bootstrap"
+import { FormControl, InputGroup } from "react-bootstrap"
 import Row from "../Row"
 import Col from "../Col"
 import ChatMessage from "../ChatMsg"
 import firebase from "firebase/app";
-// import "firebase/firestore";
+import "firebase/firestore";
 import "./style.css"
 import { set } from "mongoose"
+
+import styled from "styled-components"
+
+const Li =styled.li`
+display: list-item;
+list-style-type: "✉︎";
+padding-inline-start: 1ch;
+margin-left:28px;
+`
+
+const Button =styled.button`
+background-color: #1a262b;
+border: none;
+color: white;
+border-radius: 0 !important;
+font-family: "PT Sans Narrow", sans-serif;
+width: 100%;
+margin-top: 10px;
+box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+height: 50px;
+`
+
 
 function ChatRoom() {
     const { currentUser } = useAuth()
@@ -104,16 +127,18 @@ function ChatRoom() {
 
     return (
         <>
+          <div className="container chatRoomContainer">
             <Row>
                 <Col size="md-4">
                     <div className="userList">
-                        <h3>Users</h3>
+                        <h2 className="userHeader">Users</h2>
+                        <p className="msgDirection">Pick a User to message privately</p>
 
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</button>
-                                <div class="dropdown-menu">
+                        <div className="input-group mb-3 d-flex justify-content-center">
+                            <div className="input-group-prepend">
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</button>
+                                <div className="dropdown-menu">
                                     {users && users.map(user => {
                                         return <li id={user.uid} className={user.email} onClick={handleGroupClick}>
                                             {user.email}
@@ -123,15 +148,15 @@ function ChatRoom() {
                             </div>
                             <form className="emailAdd" onSubmit={addEmail}>
                                 <input className="msgInput" value={room} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." />
-                                <button type="submit" >Connect</button>
+                                <Button className="messageBtn" type="submit" >Message</Button>
                             </form>
                         </div>
 
                         <ul>
                             {connect && connect.map(user => {
-                                return <li className={user.email} onClick={handleGroupClick}>
+                                return <Li className={user.email} onClick={handleGroupClick}>
                                     {user.email}
-                                </li>
+                                </Li>
                             })}
                         </ul>
                     </div>
@@ -143,11 +168,11 @@ function ChatRoom() {
                     </div>
                     <form className="msgSubmit" onSubmit={sendMessage}>
                         <input className="msgInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="..." />
-                        <button type="submit" disabled={!formValue}>submit</button>
+                        <button className="sendBtn" type="submit" disabled={!formValue}>Send</button>
                     </form>
                 </Col>
             </Row>
-
+            </div>
         </>
     )
 }
