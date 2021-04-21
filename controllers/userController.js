@@ -22,5 +22,16 @@ module.exports = {
         console.log(err)
         res.status(500).send()
       })
-  }
+  },
+  createUser: function(req, res) {
+    console.log(req.body)
+    db.User.create(req.body)
+      .then(userData => {
+        res.json(userData)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send()
+      })
+  },
 }

@@ -43,13 +43,14 @@ router.route('/api/poll')
 
 router.route('/api/channel')
     .get(channelController.getChannels)
-    // .post(channelController.createChannels)
+// .post(channelController.createChannels)
 
-
-    
-
-router.route('/api/users/:id')
+router.route('/api/user')
     .get(userController.getUser)
-    .put(userController.updateUser)
+    .post(userController.createUser)
+
+// router.route('/api/user/:id')
+//     .get(userController.getUser)
+//     .put(userController.updateUser)
 
 module.exports = router

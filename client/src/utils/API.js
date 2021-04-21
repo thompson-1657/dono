@@ -34,5 +34,11 @@ export default {
     },
     deleteDonation: function(id){
         return axios.delete('/api/donate/' + id)
-    }
+    },
+    getUsers: function() {
+        return axios('/api/user')
+    },
+    createUser: function(userData) {
+        return axios.post("/api/user", userData);
+    },
 }
