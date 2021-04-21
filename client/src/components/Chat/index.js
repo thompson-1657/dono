@@ -60,12 +60,13 @@ return (
     onChange={handleFormChange}
     {...props}    
     />
-    <Buttons  as="input" 
+    <div className="chatBtn">
+    <Buttons as="input" 
     type="button" 
     value="Add to Chat"
     onClick={ props.postId ? () => handleSubmitClickPost(props.postId, formObject) : () => handleSubmitClickDonate(props.donationId, formObject)}
      >Add to Chat</Buttons>{' '}
-
+    </div>
   </Form.Group>
   </Form>
   </div>

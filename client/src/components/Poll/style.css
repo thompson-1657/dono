@@ -6,10 +6,16 @@
   border: 1px;
   background: white;
   margin-left: 15px;
+  border-radius: 4px;
 }
 
 p {
   text-align: center;
+
+}
+
+.check:hover {
+  color: green;
 }
 
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
+import {BsTrashFill} from 'react-icons/bs'
 
 
 const Feed = (props) => {
@@ -87,9 +88,10 @@ const Feed = (props) => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
-                  <p><img name="id" 
+                  <BsTrashFill className="trash" name="id" onClick={() => handleDeletePostClick(posts._id)} style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}} />
+                  {/* <p><img name="id" 
                   onClick={() => handleDeletePostClick(posts._id)} 
-                  src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '} </p>
+                  src="/icons/delete.png" />{'  '} </p> */}
               </Card>
             )
           })}
@@ -121,9 +123,12 @@ const Feed = (props) => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
-                    <p><img name="id" 
+                  <BsTrashFill name="id" 
                   onClick={() => handleDeleteDonationClick(donations._id)} 
-                  src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '} </p>
+                  style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}}/>
+                    {/* <img name="id" 
+                  onClick={() => handleDeleteDonationClick(donations._id)} 
+                  src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '}  */}
               </Card>
             )
           })}
