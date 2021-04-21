@@ -5,6 +5,8 @@ import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
 
+import {BsCheck} from 'react-icons/bs'
+
 
 const Poll = () => {
 
@@ -68,7 +70,8 @@ const Poll = () => {
                   <Form.Label>
                     <p>{polls.text}</p>
                     <p>
-                      <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '} {polls.votes}</p>
+                      <BsCheck onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} /> {polls.votes}</p>
+                      {/* <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '}  */}
                   </Form.Label>
                 </Form>
               </div>
