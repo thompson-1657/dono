@@ -6,7 +6,7 @@ import Row from "../Row"
 import Col from "../Col"
 import ChatMessage from "../ChatMsg"
 import firebase from "firebase/app";
-import "firebase/firestore";
+// import "firebase/firestore";
 import "./style.css"
 
 function ChatRoom() {

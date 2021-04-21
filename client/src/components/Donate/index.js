@@ -1,14 +1,17 @@
 import React from 'react'
-import {Card} from 'react-bootstrap'
+import {Link } from 'react-router-dom'
+import {Button} from 'react-bootstrap'
 import './style.css'
+import Buttons from '../Buttons'
 
 
 const Donate = () => (
-  <>
-    <Card className="donate">
-    <Card.Body>Donate</Card.Body>
-    </Card>
-  </>
+    <Link to='/donate'>
+    <Buttons className="donate">
+   Donate
+    </Buttons>
+    </Link>
+  
 
 
 )

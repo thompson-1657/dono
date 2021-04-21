@@ -81,7 +81,7 @@ const Poll = () => {
       <div>
         Add a poll idea!
       </div>
-      <Form>
+      <Form className="poll-in">
         <Form.Group>
           <Form.Control name="text" 
           onChange={handleFormChange} 

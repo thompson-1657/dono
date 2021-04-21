@@ -28,11 +28,17 @@ function Main() {
         <Poll />
         </Col>
         <Col sm={6}>
+        <div className="feed-container">
         <Feed />
+        </div>
         </Col>
         <Col sm={3}>
+        <div className="donate-container">   
         <Donate />
+        </div> 
+        <div className="connect-container">
         <Connect />
+        </div>
         <Post />
         </Col>
     </Row>
