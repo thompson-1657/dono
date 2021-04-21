@@ -154,9 +154,9 @@ function ChatRoom() {
 
                         <ul>
                             {connect && connect.map(user => {
-                                return <Li className={user.email} onClick={handleGroupClick}>
+                                return <li className={user.email} onClick={handleGroupClick}>
                                     {user.email}
-                                </Li>
+                                </li>
                             })}
                         </ul>
                     </div>
