@@ -82,7 +82,7 @@ const Connect = ({ children }) => {
                   {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
                   <p><BsTrashFill name="id" 
                   onClick={() => handleDeletePostClick(posts._id)} 
-                  src="/icons/delete.png" style={{width:"5%", height:"5%"}} />{'  '} </p>
+                  style={{width:"20px", height:"px"}} />{'  '} </p>
 
                   <Chat postId={posts._id} />
 
@@ -110,9 +110,9 @@ const Connect = ({ children }) => {
                   <Card.Body title={donations.title}>{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
-                  <p><img name="id" 
+                  <p><BsTrashFill name="id" 
                   onClick={() => handleDeleteDonationClick(donations._id)} 
-                  src="/icons/delete.png" style={{width:"5%", height:"5%"}} />{'  '} </p>
+                  style={{width:"20px", height:"20px"}} />{'  '} </p>
                   <Chat donationId={donations._id} />
 
                   {donations.chats.map(chat => {
