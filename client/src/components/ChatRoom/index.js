@@ -10,6 +10,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "./style.css"
 import { set } from "mongoose"
+import Buttons from "../Buttons"
 
 function ChatRoom() {
     const { currentUser } = useAuth()
@@ -104,10 +105,12 @@ function ChatRoom() {
 
     return (
         <>
+          <div className="container chatRoomContainer">
             <Row>
                 <Col size="md-4">
                     <div className="userList">
                         <h3>Users</h3>
+                        <p>Pick a User to message privately</p>
 
 
                         <div class="input-group mb-3">
@@ -123,7 +126,7 @@ function ChatRoom() {
                             </div>
                             <form className="emailAdd" onSubmit={addEmail}>
                                 <input className="msgInput" value={room} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." />
-                                <button type="submit" >Connect</button>
+                                <Buttons className="messageBtn" type="submit" >Message</Buttons>
                             </form>
                         </div>
 
@@ -143,11 +146,11 @@ function ChatRoom() {
                     </div>
                     <form className="msgSubmit" onSubmit={sendMessage}>
                         <input className="msgInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="..." />
-                        <button type="submit" disabled={!formValue}>submit</button>
+                        <button className="sendBtn" type="submit" disabled={!formValue}>Send</button>
                     </form>
                 </Col>
             </Row>
-
+            </div>
         </>
     )
 }
