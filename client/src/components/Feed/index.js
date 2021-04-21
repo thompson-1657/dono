@@ -88,7 +88,7 @@ const Feed = (props) => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
-                  <BsTrashFill name="id" onClick={() => handleDeletePostClick(posts._id)} style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}} />
+                  <BsTrashFill className="trash" name="id" onClick={() => handleDeletePostClick(posts._id)} style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}} />
                   {/* <p><img name="id" 
                   onClick={() => handleDeletePostClick(posts._id)} 
                   src="/icons/delete.png" />{'  '} </p> */}
