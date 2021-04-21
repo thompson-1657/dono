@@ -14,7 +14,11 @@ module.exports = {
   },
   updateUser: function(req, res) {
     const { id } = req.params
-    db.User.findByIdAndUpdate(id, req.body, { new: true })
+    const { email } = req.params
+    const { firebaseId } = req.params
+    //if firebaseId is null
+    //Add a firebase ID
+    db.User.findByIdAndUpdate(id, firebaseId, { new: true })
       .then(userData => {
         res.json(userData)
       })

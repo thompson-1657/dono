@@ -9,16 +9,18 @@ import API from "../utils/API"
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { signup } = useAuth()
+    const { currentUser, signup } = useAuth()
     const history = useHistory()
+
 
     async function handleSubmit(e) {
         e.preventDefault();
         try {
             await signup(emailRef.current.value, passwordRef.current.value);
-            console.log(emailRef.current.value)
+            console.log(currentUser.uid)
             API.createUser({
-                email: emailRef.current.value
+                email: emailRef.current.value,
+                firebaseId: currentUser.uid
                 // firebaseId: uidRef.current.value
             })
             .then(res => {

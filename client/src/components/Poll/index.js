@@ -4,11 +4,13 @@ import { Form, Button } from 'react-bootstrap'
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
-
+import {useAuth} from "../../contexts/AuthContexts"
 
 const Poll = () => {
 
   const [poll, setPoll] = useState([])
+  const {currentUser}= useAuth()
+  console.log(currentUser)
 
   const [formObject, setFormObject] = useState({})
 
