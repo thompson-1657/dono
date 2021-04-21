@@ -5,6 +5,7 @@
   "_id": "project3@0.1.0",
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@mojs/core": "^1.0.3",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",

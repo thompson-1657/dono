@@ -7,6 +7,8 @@ import "../App.css"
 
 import Chat from '../components/Chat'
 import Navbar from '../components/Navbar'
+import {BsTrashFill} from 'react-icons/bs'
+
 
 // import Post from '../components/Post'
 
@@ -78,7 +80,7 @@ const Connect = ({ children }) => {
                   <Card.Body date={posts.date}>{posts.date}</Card.Body>
                   <Card.Body text={posts.text}>{posts.text}</Card.Body>
                   {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
-                  <p><img name="id" 
+                  <p><BsTrashFill name="id" 
                   onClick={() => handleDeletePostClick(posts._id)} 
                   src="/icons/delete.png" style={{width:"5%", height:"5%"}} />{'  '} </p>
 
