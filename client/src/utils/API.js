@@ -41,4 +41,7 @@ export default {
     createUser: function(userData) {
         return axios.post("/api/user", userData);
     },
+    updateUser: function(id, email, fireStoreId) {
+        return axios.put('/api/donate/' + id,  email, fireStoreId)
+    },
 }

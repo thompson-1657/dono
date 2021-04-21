@@ -49,8 +49,8 @@ router.route('/api/user')
     .get(userController.getUser)
     .post(userController.createUser)
 
-// router.route('/api/user/:id')
-//     .get(userController.getUser)
-//     .put(userController.updateUser)
+router.route('/api/user/:id')
+    // .get(userController.getUser)
+    .put(userController.updateUser)
 
 module.exports = router
