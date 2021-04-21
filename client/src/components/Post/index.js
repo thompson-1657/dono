@@ -29,11 +29,11 @@ const Post = () => {
 
 
     return (
-        <Form>
+        <Form className="poll">
             <Form.Group>
                 <Form.Control name="text"
                     onChange={handleFormChange}
-                    size="lg" type="text" placeholder="Add a community post!" />
+                    size="md" type="text" placeholder="Add a community post!" />
             </Form.Group>
             <Buttons
                 onClick={handlePostFormSubmit}

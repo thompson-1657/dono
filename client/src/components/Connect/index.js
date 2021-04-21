@@ -1,13 +1,17 @@
 import React from 'react'
-import {Card} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import {Button} from 'react-bootstrap'
 import './style.css'
+import Buttons from '../Buttons'
 
 
 const Connect = () => (
-    <Card className="connect">
-    <Card.Body>Connect privately</Card.Body>
+  <Link to="/connect">
+    <Buttons className="connect">
+    Connect
+    </Buttons>
+    </Link>
     
-  </Card>
 
 
 )
