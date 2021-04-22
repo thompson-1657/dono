@@ -29,19 +29,13 @@ function App() {
             <Router>
                 <AuthProvider>
                     <Switch>
-                    <Route exact path='/'>
-                        <PreLogin />
-                    </Route>
-                    <Route path='/signUp'>
-                        <Signup />
-                    </Route>
-                    <Route path='/login'>
-                        <Login />
-                    </Route>
-                    <PrivateRoute path='/message' component={ChatRoom} />
-                    <PrivateRoute path='/connect' component={Connect} />
-                    <PrivateRoute path='/donate' component={Donate} />
-                    <PrivateRoute exact path='/home' component={Home} />
+                        <Route exact path='/' component={PreLogin} />
+                        <Route path='/signUp' component={Signup} />
+                        <Route path='/login' component={Login} />
+                        <PrivateRoute path='/message' component={ChatRoom} />
+                        <PrivateRoute path='/connect' component={Connect} />
+                        <PrivateRoute path='/donate' component={Donate} />
+                        <PrivateRoute exact path='/home' component={Home} />
                     </Switch>
                 </AuthProvider>
             </Router>
