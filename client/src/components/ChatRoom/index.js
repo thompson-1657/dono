@@ -147,7 +147,7 @@ function ChatRoom() {
                                 </div>
                             </div>
                             <form className="emailAdd" onSubmit={addEmail}>
-                                <input className="msgInput" value={room} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." />
+                                <input className="msgInput" value={setRoom} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." required />
                                 <Button className="messageBtn" type="submit" >Message</Button>
                             </form>
                         </div>
