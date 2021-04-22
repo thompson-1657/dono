@@ -14,13 +14,6 @@ import { set } from "mongoose"
 
 import styled from "styled-components"
 
-const Li =styled.li`
-display: list-item;
-list-style-type: "✉︎";
-padding-inline-start: 1ch;
-margin-left:28px;
-`
-
 const Button =styled.button`
 background-color: #1a262b;
 border: none;
@@ -154,7 +147,9 @@ function ChatRoom() {
 
                         <ul>
                             {connect && connect.map(user => {
-                                return <li className={user.email} onClick={handleGroupClick}>
+                                return <li 
+                                id="userEmailList"
+                                className={user.email} onClick={handleGroupClick}>
                                     {user.email}
                                 </li>
                             })}
@@ -167,7 +162,9 @@ function ChatRoom() {
 
                     </div>
                     <form className="msgSubmit" onSubmit={sendMessage}>
-                        <input className="msgInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="..." />
+                        <input 
+                        id="chatInput"
+                        className="msgInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="..." />
                         <button className="sendBtn" type="submit" disabled={!formValue}>Send</button>
                     </form>
                 </Col>

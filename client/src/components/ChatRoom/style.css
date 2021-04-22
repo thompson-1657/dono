@@ -6,7 +6,7 @@
   outline: none;
   border: none;
   padding: 0 10px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 0 3px 6px #999;
 }
 
 .msgSubmit {
@@ -18,17 +18,18 @@
 .msgBack {
   background-color: #bebebe;
   margin-top: 50px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 0 3px 6px #999;
 }
 
 .chatRoomContainer {
   height: 100vh;
+  overflow: auto;
 }
 
 .sendBtn {
   background-color: #1a262b;
   color: white;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 0 3px 6px #999;
 }
 
 .msgDirection {
@@ -49,4 +50,11 @@
 .userHeader {
   margin-top: 50px;
   text-align: center;
+}
+
+#userEmailList {
+  display: list-item;
+  list-style-type: "✉︎";
+  padding-inline-start: 1ch;
+  margin-left: 28px;
 }
