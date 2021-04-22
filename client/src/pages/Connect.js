@@ -79,6 +79,8 @@ const Connect = ({ children }) => {
             {post.map(posts => {
               return (
                 <Card key={posts._id} className="main">
+                  <Card.Body>Post created by: {posts.email}</Card.Body>
+
                   <Card.Body date={posts.date}>{posts.date}</Card.Body>
                   <Card.Body text={posts.text}>{posts.text}</Card.Body>
                   {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
@@ -109,25 +111,28 @@ const Connect = ({ children }) => {
             {donation.map(donations => {
               return (
                 <Card key={donations._id} className="main">
+                  <Card.Body>Donation posted by: {donations.email}</Card.Body>
+
                   <Card.Body date={donations.date}>{donations.date}</Card.Body>
                   <Card.Body title={donations.title}>{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
-
+                  {donations.firebaseId === currentUser.uid &&
+                    <BsTrashFill name="id"
+                      onClick={() => handleDeleteDonationClick(donations._id)}
+                      style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
+                  <Chat donationId={donations._id} />
 
                   {donations.chats.map(chat => {
                     return (
                       <ul>{chat}</ul>
                     )
                   })}
-                  {donations.firebaseId === currentUser.uid &&
-                    <BsTrashFill name="id"
-                      onClick={() => handleDeleteDonationClick(donations._id)}
-                      style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
                 </Card>
               )
             })}
           </div>
+
 
         ) : (
           <h3>No donations to Display</h3>

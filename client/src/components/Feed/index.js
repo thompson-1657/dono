@@ -81,6 +81,7 @@ const Feed = (props) => {
           {post.map(posts => {
             return (
               <Card className="main">
+                <Card.Body>Created by: {posts.email}</Card.Body>
                 <Card.Body>{posts.date}</Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
@@ -121,7 +122,7 @@ const Feed = (props) => {
           {donation.map(donations => {
             return (
               <Card className="main">
-                <Card.Body>Post made by:{donations.email}</Card.Body>
+                <Card.Body>Donation posted by: {donations.email}</Card.Body>
                 <Card.Body>{donations.date}</Card.Body>
                 <Card.Body>{donations.title}</Card.Body>
                 <Card.Body>{donations.description}</Card.Body>

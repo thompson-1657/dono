@@ -3,9 +3,11 @@ import {Form, Col, Row, Button} from 'react-bootstrap'
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
+import { useAuth } from "../../contexts/AuthContexts"
 
 const Chat = (props) => {
   const [formObject, setFormObject] = useState({})
+  const { currentUser } = useAuth()
 
   const handleSubmitClickPost = (id, chats) => {
     // event.preventDefault()
@@ -24,14 +26,15 @@ const Chat = (props) => {
     event.preventDefault()
     console.log(event.target.value)
     const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value })
+    setFormObject({ ...formObject, [name]: currentUser.email + ": " + value })
   }
 
   const handleSubmitClickDonate = (id, chats) => {
     // event.preventDefault()
     // const id = props.postId
     console.log(id)
-    
+    console.log(chats)
+        
     API.updateDonation(id, chats)
     .then(res => {
       console.log(id, chats)

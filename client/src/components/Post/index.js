@@ -22,7 +22,8 @@ const Post = () => {
         if (formObject.text) {
             API.createPost({
                 text: formObject.text,
-                firebaseId: currentUser.uid
+                firebaseId: currentUser.uid,
+                email: currentUser.email
             })
                 .then(res => console.log("HI"))
                 .catch(err => console.log(err));

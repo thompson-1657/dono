@@ -10,6 +10,7 @@ const connectSchema = new Schema({
         type: Date,
         default: Date.now()
     },
+    email: String,
     user:
     {
         type: Schema.Types.ObjectId,

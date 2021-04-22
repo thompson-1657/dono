@@ -29,7 +29,8 @@ const DonateForm = (props) => {
     API.createDonation({
       title: formObject.title,
       description: formObject.description,
-      firebaseId: currentUser.uid
+      firebaseId: currentUser.uid,
+      email: currentUser.email
     })
     .then(donationData => {
       console.log(donationData)
