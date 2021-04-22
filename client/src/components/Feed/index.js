@@ -5,11 +5,15 @@ import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
 import {BsTrashFill} from 'react-icons/bs'
+import {useAuth} from "../../contexts/AuthContexts"
 
 
 const Feed = (props) => {
 
   const [post, setPosts] = useState([])
+  const {currentUser} = useAuth()
+
+  const isCreator = true
 
   useEffect(() => {
     loadPosts()
@@ -77,6 +81,7 @@ const Feed = (props) => {
           {post.map(posts => {
             return (
               <Card className="main">
+                <Card.Body>Created by: {posts.email}</Card.Body>
                 <Card.Body>{posts.date}</Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
@@ -88,7 +93,12 @@ const Feed = (props) => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
-                  <BsTrashFill className="trash" name="id" onClick={() => handleDeletePostClick(posts._id)} style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}} />
+                {posts.firebaseId === currentUser.uid && 
+                  <BsTrashFill 
+                  className="trash" 
+                  name="id" 
+                  onClick={() => handleDeletePostClick(posts._id)} 
+                  style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}} />}
                   {/* <p><img name="id" 
                   onClick={() => handleDeletePostClick(posts._id)} 
                   src="/icons/delete.png" />{'  '} </p> */}
@@ -112,6 +122,7 @@ const Feed = (props) => {
           {donation.map(donations => {
             return (
               <Card className="main">
+                <Card.Body>Donation posted by: {donations.email}</Card.Body>
                 <Card.Body>{donations.date}</Card.Body>
                 <Card.Body>{donations.title}</Card.Body>
                 <Card.Body>{donations.description}</Card.Body>
@@ -123,9 +134,10 @@ const Feed = (props) => {
                 value="Connect" 
                 
                 >Connect</Buttons></Link>{' '}
+                {donations.firebaseId === currentUser.uid &&
                   <BsTrashFill name="id" 
                   onClick={() => handleDeleteDonationClick(donations._id)} 
-                  style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}}/>
+                  style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}}/>}
                     {/* <img name="id" 
                   onClick={() => handleDeleteDonationClick(donations._id)} 
                   src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '}  */}

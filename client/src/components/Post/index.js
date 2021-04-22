@@ -4,11 +4,12 @@ import { Form, Button } from 'react-bootstrap'
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
-
+import { useAuth } from "../../contexts/AuthContexts"
 
 
 const Post = () => {
     const [formObject, setFormObject] = useState({})
+    const { currentUser } = useAuth()
 
     function handleFormChange(event) {
         const { name, value } = event.target;
@@ -20,7 +21,9 @@ const Post = () => {
         // console.log(formObject)
         if (formObject.text) {
             API.createPost({
-                text: formObject.text
+                text: formObject.text,
+                firebaseId: currentUser.uid,
+                email: currentUser.email
             })
                 .then(res => console.log("HI"))
                 .catch(err => console.log(err));

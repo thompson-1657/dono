@@ -4,6 +4,7 @@ import './style.css'
 import Buttons from "../Buttons"
 
 import API from '../../utils/API'
+import { useAuth } from "../../contexts/AuthContexts"
 
 
 
@@ -13,6 +14,8 @@ const DonateForm = (props) => {
     title: "",
     description: "",
   })
+
+  const { currentUser } = useAuth()
 
   function handleFormChange(event) {
     const { name, value } = event.target;
@@ -25,7 +28,9 @@ const DonateForm = (props) => {
     
     API.createDonation({
       title: formObject.title,
-      description: formObject.description
+      description: formObject.description,
+      firebaseId: currentUser.uid,
+      email: currentUser.email
     })
     .then(donationData => {
       console.log(donationData)

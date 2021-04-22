@@ -10,14 +10,16 @@ const postsSeed = [
         chats: [
             "I have a coat", "I can help collect some too"
         ],
-        date: new Date(Date.now())
+        date: new Date(Date.now()),
+        email: "test@test.com"
     },
     {
         text: "I want to donate food this weekend at my restaurant",
         chats: [
             "I will share with my friends", "Thank you, looking forward to lunch!"
         ],
-        date: new Date(Date.now())
+        date: new Date(Date.now()),
+        email: "test@test.com"
     }
 ]
 
@@ -38,6 +40,7 @@ const donateSeed = [
             "I will share with my friends", "Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
+        email: "test@test.com"
     },
     {
         title: "Formula",
@@ -47,6 +50,7 @@ const donateSeed = [
             "I will share with my friends", "Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
+        email: "test@test.com"
     }
 
 ]
@@ -57,11 +61,13 @@ const pollSeed = [
         text: "Baby crib",
         typeOfDonation: "Utility",
         date: new Date(Date.now()),
+        email: "test@test.com"
     },
     {
         text: "Baby food",
         typeOfDonation: "Parishable",
         date: new Date(Date.now()),
+        email: "test@test.com"
     }
 ]
 

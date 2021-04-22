@@ -15,6 +15,10 @@ const postSchema = new Schema({
         type: Date,
         default: Date.now()
     },
+    email: String,
+    firebaseId: {
+        type: String
+    },
     user:
     {
         type: Schema.Types.ObjectId,

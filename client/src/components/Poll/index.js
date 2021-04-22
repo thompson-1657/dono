@@ -4,21 +4,21 @@ import { Form, Button } from 'react-bootstrap'
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
-import {useAuth} from "../../contexts/AuthContexts"
-import {BsCheck} from 'react-icons/bs'
+import { useAuth } from "../../contexts/AuthContexts"
+import { BsCheck } from 'react-icons/bs'
+import {BsTrashFill} from 'react-icons/bs'
 
 
 const Poll = () => {
 
-  const [poll, setPoll] = useState([])
-  const {currentUser}= useAuth()
-  console.log(currentUser)
-
+  const [poll_, setPoll] = useState([])
+  const { currentUser } = useAuth()
+  // console.log(currentUser)
   const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
     loadPolls()
-  }, [])
+  }, [poll_])
 
   function loadPolls() {
     API.getPolls()
@@ -35,7 +35,7 @@ const Poll = () => {
     // console.log(id)
     API.updatePoll(id, votes)
       .then(res => {
-      
+
         loadPolls()
       }
       )
@@ -44,7 +44,7 @@ const Poll = () => {
 
   function handleFormChange(event) {
     const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
+    setFormObject({ ...formObject, [name]: value })
   };
 
   function handlePollFormSubmit(event) {
@@ -52,19 +52,29 @@ const Poll = () => {
     // console.log(formObject)
     if (formObject.text) {
       API.createPoll({
-        text: formObject.text
+        text: formObject.text,
+        firebaseId: currentUser.uid
       })
-      .then(res => loadPolls())
+        .then(res => loadPolls())
         .catch(err => console.log(err));
     }
   }
+
+  const handleDeletePollClick = (id) => {
+    // console.log("click")
+    // console.log(id)
+    API.deletePoll(id)
+    .then(res => {
+      console.log(res)
+    })
+  }
   return (
     <>
-      {poll.length ? (
+      {poll_.length ? (
 
         <div>
           <p className="poll">Poll</p>
-          {poll.map(polls => {
+          {poll_.map(polls => {
             return (
               <div className="poll-container">
 
@@ -73,7 +83,11 @@ const Poll = () => {
                     <p>{polls.text}</p>
                     <p>
                       <BsCheck className="check" onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} /> {polls.votes}</p>
-                      {/* <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '}  */}
+                    {/* <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '}  */}
+                    {polls.firebaseId === currentUser.uid &&
+                      <BsTrashFill name="id"
+                        onClick={() => handleDeletePollClick(polls._id)}
+                        style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
                   </Form.Label>
                 </Form>
               </div>
@@ -88,14 +102,14 @@ const Poll = () => {
       </div>
       <Form className="poll-in">
         <Form.Group>
-          <Form.Control name="text" 
-          onChange={handleFormChange} 
-          size="lg" type="text" placeholder="Food, supplies, etc." />
+          <Form.Control name="text"
+            onChange={handleFormChange}
+            size="lg" type="text" placeholder="Food, supplies, etc." />
         </Form.Group>
-        <Buttons 
-        onClick={handlePollFormSubmit} 
-        variant="primary" type="submit"
-        
+        <Buttons
+          onClick={handlePollFormSubmit}
+          variant="primary" type="submit"
+
         >
           Submit
         </Buttons>
