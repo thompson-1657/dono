@@ -169,6 +169,7 @@ function ChatRoom() {
                     </form>
                 </Col>
             </Row>
+            <Row></Row>
             </div>
         </>
     )

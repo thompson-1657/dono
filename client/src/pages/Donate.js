@@ -15,7 +15,7 @@ class Donate extends Component {
 <>
 <Navbar />
       <Row>
-        <Col></Col>
+        <Col />
       </Row>
       <Row>
         <Col>
@@ -40,7 +40,7 @@ class Donate extends Component {
   </Col>
   </Row>
   <Row>
-    <Col></Col>
+    <Col />
   </Row>
 
 
