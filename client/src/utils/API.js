@@ -44,4 +44,7 @@ export default {
     updateUser: function(id, email, fireStoreId) {
         return axios.put('/api/donate/' + id,  email, fireStoreId)
     },
+    deletePoll: function(id){
+        return axios.delete('/api/poll/' + id)
+    },
 }

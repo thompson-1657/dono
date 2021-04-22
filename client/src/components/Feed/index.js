@@ -121,6 +121,7 @@ const Feed = (props) => {
           {donation.map(donations => {
             return (
               <Card className="main">
+                <Card.Body>Post made by:{donations.email}</Card.Body>
                 <Card.Body>{donations.date}</Card.Body>
                 <Card.Body>{donations.title}</Card.Body>
                 <Card.Body>{donations.description}</Card.Body>
