@@ -22,9 +22,9 @@ const pollSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    zipCode: {
-        type: Number,
-        ref: 'User'
+    placeid: {
+        type: String
+        // ref: 'User'
     }
 
 })

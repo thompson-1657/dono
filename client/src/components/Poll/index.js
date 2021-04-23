@@ -6,7 +6,8 @@ import API from '../../utils/API'
 import Buttons from "../Buttons"
 import { useAuth } from "../../contexts/AuthContexts"
 import { BsCheck } from 'react-icons/bs'
-import {BsTrashFill} from 'react-icons/bs'
+import { BsTrashFill } from 'react-icons/bs'
+import { useGeo } from "../../contexts/GeoContext"
 
 
 const Poll = () => {
@@ -15,6 +16,7 @@ const Poll = () => {
   const { currentUser } = useAuth()
   // console.log(currentUser)
   const [formObject, setFormObject] = useState({})
+  const { placeid } = useGeo()
 
   useEffect(() => {
     loadPolls()
@@ -53,7 +55,8 @@ const Poll = () => {
     if (formObject.text) {
       API.createPoll({
         text: formObject.text,
-        firebaseId: currentUser.uid
+        firebaseId: currentUser.uid,
+        placeid: placeid
       })
         .then(res => loadPolls())
         .catch(err => console.log(err));
@@ -64,9 +67,9 @@ const Poll = () => {
     // console.log("click")
     // console.log(id)
     API.deletePoll(id)
-    .then(res => {
-      console.log(res)
-    })
+      .then(res => {
+        console.log(res)
+      })
   }
   return (
     <>
@@ -76,47 +79,50 @@ const Poll = () => {
           <p className="poll">Poll</p>
           {poll_.map(polls => {
             return (
-              <div className="poll-container">
+              <div>
+                {polls.placeid === placeid &&
+                  <div className="poll-container">
 
-                <Form key={polls._id} className="poll">
-                  <Form.Label>
-                    <p>{polls.text}</p>
-                    <p>
-                      <BsCheck className="check" onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} /> {polls.votes}</p>
-                    {/* <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '}  */}
-                    {polls.firebaseId === currentUser.uid &&
-                      <BsTrashFill name="id"
-                        onClick={() => handleDeletePollClick(polls._id)}
-                        style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
-                  </Form.Label>
-                </Form>
-              </div>
+                    <Form key={polls._id} className="poll">
+                      <Form.Label>
+                        <p>{polls.text}</p>
+                        <p>
+                          <BsCheck className="check" onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} /> {polls.votes}</p>
+                        {/* <img onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} />{'  '}  */}
+                        {polls.firebaseId === currentUser.uid &&
+                          <BsTrashFill name="id"
+                            onClick={() => handleDeletePollClick(polls._id)}
+                            style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
+                      </Form.Label>
+                    </Form>
+                    </div>
+          }</div>
             )
           })}
-        </div>
-      ) : (
-        <h3>No Polls to Display</h3>
+              </div>
+            ) : (
+          <h3>No Polls to Display</h3>
       )}
-      <div>
-        Add a poll idea!
+          <div>
+            Add a poll idea!
       </div>
-      <Form className="poll-in">
-        <Form.Group>
-          <Form.Control name="text"
-            onChange={handleFormChange}
-            size="lg" type="text" placeholder="Food, supplies, etc." />
-        </Form.Group>
-        <Buttons
-          onClick={handlePollFormSubmit}
-          variant="primary" type="submit"
+          <Form className="poll-in">
+            <Form.Group>
+              <Form.Control name="text"
+                onChange={handleFormChange}
+                size="lg" type="text" placeholder="Food, supplies, etc." />
+            </Form.Group>
+            <Buttons
+              onClick={handlePollFormSubmit}
+              variant="primary" type="submit"
 
-        >
-          Submit
+            >
+              Submit
         </Buttons>
 
-      </Form>
+          </Form>
     </>
-  )
+      )
 
 }
 export default Poll

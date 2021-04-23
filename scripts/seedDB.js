@@ -11,7 +11,8 @@ const postsSeed = [
             "test@test.com: I have a coat", "test@test.com: I can help collect some too"
         ],
         date: new Date(Date.now()),
-        email: "test@test.com"
+        email: "test@test.com",
+        placeid: "place.7434989446701850"
     },
     {
         text: "I want to donate food this weekend at my restaurant",
@@ -19,14 +20,15 @@ const postsSeed = [
             "test@test.com: I will share with my friends", "test@test.com: Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
-        email: "test@test.com"
+        email: "test@test.com",
+        placeid: "place.7434989446701850"
     }
 ]
 
 const userSeed =
 {
     email: "jon.doe@gmail.com",
-    zipCode: 60626,
+    placeid: "place.7434989446701850",
     firebaseId: "12345",
     // channels: ["1"]
 }
@@ -40,7 +42,8 @@ const donateSeed = [
             "test@test.com: I will share with my friends", "test@test.com: Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
-        email: "test@test.com"
+        email: "test@test.com",
+        placeid: "place.7434989446701850"
     },
     {
         title: "Formula",
@@ -50,7 +53,8 @@ const donateSeed = [
             "test@test.com: I will share with my friends", "test@test.com: Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
-        email: "test@test.com"
+        email: "test@test.com",
+        placeid: "place.7434989446701850"
     }
 
 ]
@@ -61,13 +65,15 @@ const pollSeed = [
         text: "Baby crib",
         typeOfDonation: "Utility",
         date: new Date(Date.now()),
-        email: "test@test.com"
+        email: "test@test.com",
+        placeid: "place.7434989446701850"
     },
     {
         text: "Baby food",
         typeOfDonation: "Parishable",
         date: new Date(Date.now()),
-        email: "test@test.com"
+        email: "test@test.com",
+        placeid: "place.7434989446701850"
     }
 ]
 
@@ -126,22 +132,22 @@ const runSeeder = async () => {
 
         await db.Post.updateMany({}, {
             user: user._id,
-            zipCode: user.zipCode
+            // placeid: user.placeid
         })
 
         await db.Donate.updateMany({}, {
             user: user._id,
-            zipCode: user.zipCode
+            // placeid: user.placeid
         })
 
         await db.Poll.updateMany({}, {
             user: user._id,
-            zipCode: user.zipCode
+            // placeid: user.placeid
         })
 
         // await db.Channel.updateMany({}, {
         //     user: user._id,
-        //     zipCode: user.zipCode
+        //     placeid: user.placeid
         // })
 
     } catch (err) {

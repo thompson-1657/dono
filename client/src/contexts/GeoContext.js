@@ -23,6 +23,7 @@ export function useGeo() {
 export function GeoProvider({ children }) {
 
     const [location, setLocation] = useState()
+    const [placeid, setPlaceid] = useState()
 
     useEffect(() => {
         locationAPI()
@@ -52,7 +53,8 @@ export function GeoProvider({ children }) {
                         if (res.data.features[i].place_type[0] == "place") {
                             // console.log(res.data.features[i].place_name)
                             setLocation(res.data.features[i].place_name)
-                            console.log(location)
+                            setPlaceid(res.data.features[i].id)
+
                         }
                     }
                     // setLocation()
@@ -68,7 +70,10 @@ export function GeoProvider({ children }) {
     }
 
 
-    const locationValue = {location}
+    const locationValue = {
+        location,
+        placeid
+    }
 
 
 

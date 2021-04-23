@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
-import {BsTrashFill} from 'react-icons/bs'
-import {useAuth} from "../../contexts/AuthContexts"
+import { BsTrashFill } from 'react-icons/bs'
+import { useAuth } from "../../contexts/AuthContexts"
+import { useGeo } from "../../contexts/GeoContext"
 
 
 const Feed = (props) => {
 
   const [post, setPosts] = useState([])
-  const {currentUser} = useAuth()
+  const { currentUser } = useAuth()
+  const { placeid } = useGeo()
 
   const isCreator = true
 
@@ -56,18 +58,18 @@ const Feed = (props) => {
     // console.log("click")
     // console.log(id)
     API.deletePost(id)
-    .then(res => {
-      console.log(res)
-    })
+      .then(res => {
+        console.log(res)
+      })
   }
 
   const handleDeleteDonationClick = (id) => {
     // console.log("click")
     // console.log(id)
     API.deleteDonation(id)
-    .then(res => {
-      console.log(res)
-    })
+      .then(res => {
+        console.log(res)
+      })
   }
 
   return (
@@ -80,29 +82,34 @@ const Feed = (props) => {
         <div className="card">
           {post.map(posts => {
             return (
-              <Card className="main">
-                <Card.Body>Created by: {posts.email}</Card.Body>
-                <Card.Body>{posts.date}</Card.Body>
-                <Card.Body>{posts.text}</Card.Body>
-                {/* <Card.Body>{posts.description}</Card.Body> */}
+              <div>
+                {posts.placeid === placeid &&
 
-                <Link to="/connect"><Buttons 
-                // onClick={handleConnectSubmit}
-                as="input" 
-                type="submit" 
-                value="Connect" 
-                
-                >Connect</Buttons></Link>{' '}
-                {posts.firebaseId === currentUser.uid && 
-                  <BsTrashFill 
-                  className="trash" 
-                  name="id" 
-                  onClick={() => handleDeletePostClick(posts._id)} 
-                  style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}} />}
-                  {/* <p><img name="id" 
+                  <Card className="main">
+                    <Card.Body>Created by: {posts.email}</Card.Body>
+                    <Card.Body>{posts.date}</Card.Body>
+                    <Card.Body>{posts.text}</Card.Body>
+                    {/* <Card.Body>{posts.description}</Card.Body> */}
+
+                    <Link to="/connect"><Buttons
+                      // onClick={handleConnectSubmit}
+                      as="input"
+                      type="submit"
+                      value="Connect"
+
+                    >Connect</Buttons></Link>{' '}
+                    {posts.firebaseId === currentUser.uid &&
+                      <BsTrashFill
+                        className="trash"
+                        name="id"
+                        onClick={() => handleDeletePostClick(posts._id)}
+                        style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
+                    {/* <p><img name="id" 
                   onClick={() => handleDeletePostClick(posts._id)} 
                   src="/icons/delete.png" />{'  '} </p> */}
-              </Card>
+                  </Card>
+                }
+              </div>
             )
           })}
         </div>
@@ -113,7 +120,7 @@ const Feed = (props) => {
 
 
 
-<h2 className="posts">
+      <h2 className="posts">
         Donation posts
         </h2>
 
@@ -121,27 +128,31 @@ const Feed = (props) => {
         <div className="card">
           {donation.map(donations => {
             return (
-              <Card className="main">
-                <Card.Body>Donation posted by: {donations.email}</Card.Body>
-                <Card.Body>{donations.date}</Card.Body>
-                <Card.Body>{donations.title}</Card.Body>
-                <Card.Body>{donations.description}</Card.Body>
+              <div>
+                {donations.placeid === placeid &&
+                <Card className="main">
+                  <Card.Body>Donation posted by: {donations.email}</Card.Body>
+                  <Card.Body>{donations.date}</Card.Body>
+                  <Card.Body>{donations.title}</Card.Body>
+                  <Card.Body>{donations.description}</Card.Body>
 
-                <Link to="/connect"><Buttons 
-                // onClick={handleConnectSubmit}
-                as="input" 
-                type="submit" 
-                value="Connect" 
-                
-                >Connect</Buttons></Link>{' '}
-                {donations.firebaseId === currentUser.uid &&
-                  <BsTrashFill name="id" 
-                  onClick={() => handleDeleteDonationClick(donations._id)} 
-                  style={{width:"20px", height:"20px", marginTop:"5px", marginRight:"10px"}}/>}
-                    {/* <img name="id" 
+                  <Link to="/connect"><Buttons
+                    // onClick={handleConnectSubmit}
+                    as="input"
+                    type="submit"
+                    value="Connect"
+
+                  >Connect</Buttons></Link>{' '}
+                  {donations.firebaseId === currentUser.uid &&
+                    <BsTrashFill name="id"
+                      onClick={() => handleDeleteDonationClick(donations._id)}
+                      style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
+                  {/* <img name="id" 
                   onClick={() => handleDeleteDonationClick(donations._id)} 
                   src="/icons/delete.png" style={{width:"10%", height:"10%"}} />{'  '}  */}
-              </Card>
+                </Card>
+          }
+              </div>
             )
           })}
         </div>

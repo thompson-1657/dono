@@ -4,6 +4,7 @@ import { Container, Card } from 'react-bootstrap'
 import API from '../utils/API'
 import "../App.css"
 import { useAuth } from "../contexts/AuthContexts"
+import { useGeo } from "../contexts/GeoContext"
 
 
 import Chat from '../components/Chat'
@@ -17,7 +18,7 @@ const Connect = ({ children }) => {
 
   const [post, setPosts] = useState([])
   const { currentUser } = useAuth()
-
+  const { placeid, location } = useGeo()
 
   useEffect(() => {
     loadPosts()
@@ -78,25 +79,28 @@ const Connect = ({ children }) => {
           <div className="card">
             {post.map(posts => {
               return (
-                <Card key={posts._id} className="main">
-                  <Card.Body>Post created by: {posts.email}</Card.Body>
+                <div>
+                  {posts.placeid === placeid &&
+                    <Card key={posts._id} className="main">
+                      <Card.Body>Post created by: {posts.email}</Card.Body>
 
-                  <Card.Body date={posts.date}>{posts.date}</Card.Body>
-                  <Card.Body text={posts.text}>{posts.text}</Card.Body>
-                  {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
+                      <Card.Body date={posts.date}>{posts.date}</Card.Body>
+                      <Card.Body text={posts.text}>{posts.text}</Card.Body>
+                      {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
 
-                  <Chat postId={posts._id} />
+                      <Chat postId={posts._id} />
 
-                  {posts.chats.map(chat => {
-                    return (
-                      <ul>{chat}</ul>
-                    )
-                  })}
-                  {posts.firebaseId === currentUser.uid &&
-                    <BsTrashFill name="id"
-                      onClick={() => handleDeletePostClick(posts._id)}
-                      style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
-                </Card>
+                      {posts.chats.map(chat => {
+                        return (
+                          <ul>{chat}</ul>
+                        )
+                      })}
+                      {posts.firebaseId === currentUser.uid &&
+                        <BsTrashFill name="id"
+                          onClick={() => handleDeletePostClick(posts._id)}
+                          style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
+                    </Card>
+            }</div>
               )
             })}
           </div>
@@ -110,6 +114,8 @@ const Connect = ({ children }) => {
           <div className="card">
             {donation.map(donations => {
               return (
+                <div>
+                {donations.placeid === placeid &&
                 <Card key={donations._id} className="main">
                   <Card.Body>Donation posted by: {donations.email}</Card.Body>
 
@@ -129,6 +135,8 @@ const Connect = ({ children }) => {
                     )
                   })}
                 </Card>
+                }
+                </div>
               )
             })}
           </div>
