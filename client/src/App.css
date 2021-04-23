@@ -30,3 +30,47 @@ html {
 .signUpContainer {
   height: 100vh;
 }
+
+.create {
+  text-align: right;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.msg {
+  text-align: left;
+  
+}
+
+.card-title {
+  font-size: 36px;
+  text-align: center;
+}
+
+.bg {
+  border: 5px;
+  background-color: rgb(245, 245, 245);
+  padding: 15px;
+  border-radius: 2px;
+  margin-left: 15px;
+  margin-right: 15px;
+  box-shadow: 1px 1px #14829F;
+}
+
+.bg:hover {
+  box-shadow: 2px 2px #E66912;
+
+}
+.title {
+  background-color: #14829F;
+  border-radius: 4px; 
+  text-align: center;
+  padding-top:5px;
+  box-shadow: 5px 5px;
+  
+}
+
+.titleh2{
+  text-align: center;
+
+}

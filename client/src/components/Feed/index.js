@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import './style.css'
+import '../../App.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
 import {BsTrashFill} from 'react-icons/bs'
@@ -80,9 +81,9 @@ const Feed = (props) => {
         <div className="card">
           {post.map(posts => {
             return (
-              <Card className="main">
-                <Card.Body>Created by: {posts.email}</Card.Body>
-                <Card.Body>{posts.date}</Card.Body>
+              <Card className="main ">
+                <Card.Body className="create">Created by: {posts.email}</Card.Body>
+                <Card.Body className="create">{posts.date}<hr /></Card.Body>
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
 
@@ -122,9 +123,9 @@ const Feed = (props) => {
           {donation.map(donations => {
             return (
               <Card className="main">
-                <Card.Body>Donation posted by: {donations.email}</Card.Body>
-                <Card.Body>{donations.date}</Card.Body>
-                <Card.Body>{donations.title}</Card.Body>
+                <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
+                <Card.Body className="create">{donations.date}<hr /></Card.Body>
+                <Card.Body className="card-title">{donations.title}</Card.Body>
                 <Card.Body>{donations.description}</Card.Body>
 
                 <Link to="/connect"><Buttons 
@@ -133,7 +134,7 @@ const Feed = (props) => {
                 type="submit" 
                 value="Connect" 
                 
-                >Connect</Buttons></Link>{' '}
+                className="feed">Connect</Buttons></Link>{' '}
                 {donations.firebaseId === currentUser.uid &&
                   <BsTrashFill name="id" 
                   onClick={() => handleDeleteDonationClick(donations._id)} 
