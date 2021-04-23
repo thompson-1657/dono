@@ -38,7 +38,6 @@ function PreLogin() {
 
                 <Col >
                     <Logo />
-                    Your location: 
                     {/* <Location /> */}
                     
                 </Col>

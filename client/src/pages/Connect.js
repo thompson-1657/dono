@@ -75,24 +75,28 @@ const Connect = ({ children }) => {
     <>
       <Navbar />
       <Container className="postContainer">
+      <h2 className="title">Community Posts</h2>
+
         {post.length ? (
           <div className="card">
             {post.map(posts => {
               return (
-                <div>
+                <div >
                   {posts.placeid === placeid &&
-                    <Card key={posts._id} className="main">
-                      <Card.Body>Post created by: {posts.email}</Card.Body>
+                    <Card key={posts._id} className="main title">
+                      <Card.Body className="create">Post created by: {posts.email}</Card.Body>
 
-                      <Card.Body date={posts.date}>{posts.date}</Card.Body>
+                      <Card.Body className="create" date={posts.date}>{posts.date}<hr /></Card.Body>
                       <Card.Body text={posts.text}>{posts.text}</Card.Body>
                       {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
 
                       <Chat postId={posts._id} />
-
+                      <div className="msg">Chat History</div>
                       {posts.chats.map(chat => {
                         return (
-                          <ul>{chat}</ul>
+                          <div className="bg">
+                          <ul className="msg">{chat}</ul>
+                          </div>
                         )
                       })}
                       {posts.firebaseId === currentUser.uid &&
@@ -111,15 +115,17 @@ const Connect = ({ children }) => {
 
 
         {donation.length ? (
+          <>
+          <h2 className="title">Donations</h2>
           <div className="card">
             {donation.map(donations => {
               return (
                 <div>
                 {donations.placeid === placeid &&
-                <Card key={donations._id} className="main">
-                  <Card.Body>Donation posted by: {donations.email}</Card.Body>
+                <Card key={donations._id} className="main title">
+                  <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
 
-                  <Card.Body date={donations.date}>{donations.date}</Card.Body>
+                  <Card.Body className="create" date={donations.date}>{donations.date}<hr /></Card.Body>
                   <Card.Body title={donations.title}>{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
@@ -128,10 +134,14 @@ const Connect = ({ children }) => {
                       onClick={() => handleDeleteDonationClick(donations._id)}
                       style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
                   <Chat donationId={donations._id} />
-
+                  <div className="msg">
+                    Chat History
+                  </div>
                   {donations.chats.map(chat => {
                     return (
-                      <ul>{chat}</ul>
+                      <div className="bg">
+                      <ul className="msg">{chat}</ul>
+                      </div>
                     )
                   })}
                 </Card>
@@ -141,7 +151,7 @@ const Connect = ({ children }) => {
             })}
           </div>
 
-
+            </>
         ) : (
           <h3>No donations to Display</h3>
         )}

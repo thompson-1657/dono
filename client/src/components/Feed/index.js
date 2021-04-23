@@ -112,13 +112,13 @@ const Feed = (props) => {
                 <Card.Body>{posts.text}</Card.Body>
                 {/* <Card.Body>{posts.description}</Card.Body> */}
 
-                <Link to="/connect"><Buttons 
+                {/* <Link to="/connect"><Buttons 
                 // onClick={handleConnectSubmit}
                 as="input" 
                 type="submit" 
                 value="Connect" 
                 
-                >Connect</Buttons></Link>{' '}
+                >Connect</Buttons></Link>{' '} */}
                 {posts.firebaseId === currentUser.uid && 
                   <BsTrashFill 
                   className="trash" 
