@@ -3,6 +3,7 @@ import { Form, Button, Card } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContexts"
 import { Link, useHistory } from "react-router-dom"
 import Buttons from "../components/Buttons"
+import Circle from "../components/Circle"
 import API from "../utils/API"
 import "../App.css"
 
@@ -35,7 +36,7 @@ export default function Signup() {
     }
     return (
         <div className="signUpContainer container">
-            <Card className="container">
+            <Card className="container" id="signUpCard">
                 <Card.Body>
                     <h2 className="text-center mb-4">Signup</h2>
                     <Form onSubmit={handleSubmit}>
@@ -53,6 +54,7 @@ export default function Signup() {
             </Card>
             <div className="w-100 text-center mt-2">
                 already have an account <Link className="loginLink" to="/login">Log in</Link>
+            <Circle />
             </div>
         </div>
     )
