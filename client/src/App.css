@@ -39,8 +39,16 @@ html {
 
 .msg {
   text-align: left;
+  
 }
 
 .card-title {
   font-size: 36px;
+  text-align: center;
+}
+
+.bg {
+  background-color: #D8E3EC;
+  padding: 15px;
+  border-radius: 2px;
 }
