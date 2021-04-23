@@ -5,7 +5,7 @@ import Buttons from '../components/Buttons'
 import Logo from '../components/Logo'
 import { Col, Row } from 'react-bootstrap'
 import { useHistory } from "react-router-dom"
-
+// import Location from '../components/Location'
 
 function PreLogin() {
     const history = useHistory()
@@ -16,6 +16,9 @@ function PreLogin() {
 
                 <Col >
                     <Logo />
+                    Your location: 
+                    {/* <Location /> */}
+                    
                 </Col>
                 <Col>
                 </Col>

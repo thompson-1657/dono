@@ -8,7 +8,7 @@ const postsSeed = [
     {
         text: "I would like to collect coats in my neighborhood",
         chats: [
-            "I have a coat", "I can help collect some too"
+            "test@test.com: I have a coat", "test@test.com: I can help collect some too"
         ],
         date: new Date(Date.now()),
         email: "test@test.com"
@@ -16,7 +16,7 @@ const postsSeed = [
     {
         text: "I want to donate food this weekend at my restaurant",
         chats: [
-            "I will share with my friends", "Thank you, looking forward to lunch!"
+            "test@test.com: I will share with my friends", "test@test.com: Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
         email: "test@test.com"
@@ -34,10 +34,10 @@ const userSeed =
 const donateSeed = [
     {
         title: "Crib",
-        description: "Ikea cribe, 2 years old",
+        description: "Ikea crib, 2 years old",
         typeOfDonation: "Utility",
         chats: [
-            "I will share with my friends", "Thank you, looking forward to lunch!"
+            "test@test.com: I will share with my friends", "test@test.com: Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
         email: "test@test.com"
@@ -47,7 +47,7 @@ const donateSeed = [
         description: "Newborn, target brand",
         typeOfDonation: "Parishable",
         chats: [
-            "I will share with my friends", "Thank you, looking forward to lunch!"
+            "test@test.com: I will share with my friends", "test@test.com: Thank you, looking forward to lunch!"
         ],
         date: new Date(Date.now()),
         email: "test@test.com"

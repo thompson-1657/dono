@@ -2,6 +2,7 @@ import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContexts"
+import { GeoProvider } from "./contexts/GeoContext"
 // import { library } from '@fortawesome/fontawesome-svg-core'
 // import { fab } from '@fortawesome/free-brands-svg-icons'
 // import Main from "./pages/Main";
@@ -28,6 +29,7 @@ function App() {
 
             <Router>
                 <AuthProvider>
+                    <GeoProvider>
                     <Switch>
                     <Route exact path='/'>
                         <PreLogin />
@@ -43,6 +45,7 @@ function App() {
                     <PrivateRoute path='/donate' component={Donate} />
                     <PrivateRoute exact path='/home' component={Home} />
                     </Switch>
+                    </GeoProvider>
                 </AuthProvider>
             </Router>
         </>
