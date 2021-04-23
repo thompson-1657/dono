@@ -3,6 +3,7 @@ import { Form, Button, Card } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContexts"
 import { Link, useHistory } from "react-router-dom"
 import Buttons from "../components/Buttons"
+import "../App.css"
 
 
 export default function Login() {
@@ -21,7 +22,7 @@ export default function Login() {
         }
     }
     return (
-        <>
+        <div className="signUpContainer container">
             <Card className="container">
                 <Card.Body>
                     <h2 className="text-center mb-4">Login</h2>
@@ -41,7 +42,7 @@ export default function Login() {
             <div className="w-100 text-center mt-2">
                 <Link className="loginLink" to="/signup">Sign up</Link>
             </div>
-        </>
+        </div>
     )
 
 }

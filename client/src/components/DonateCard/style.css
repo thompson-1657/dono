@@ -65,13 +65,6 @@ img {
   box-shadow: 0 6px 9px -8px #333;
 }
 
-/* @media only screen and (max-width: 858px) {
-  .donateCard {
-    width: 100vw;
-    height: 65vh;
-  }
-} */
-
 @media only screen and (max-width: 866px) {
   .donateCard {
     height: 40vh;
@@ -83,5 +76,6 @@ img {
   .donateCard {
     width: 100vw;
     height: 40vh;
+    margin-left: 0;
   }
 }
