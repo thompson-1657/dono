@@ -92,3 +92,9 @@
     margin-left: 135px;
   }
 }
+
+@media only screen and (max-width: 531px) {
+  .input-group-prepend {
+    margin: auto;
+  }
+}
