@@ -4,6 +4,7 @@ import Rectangle from "../components/Rectangle"
 import Logo from "../components/Logo"
 import { Col, Row } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
+
 import styled from "styled-components"
 
 const Button = styled.button`
@@ -27,6 +28,7 @@ const Button = styled.button`
 `
 
 
+
 function PreLogin() {
     const history = useHistory()
 
@@ -36,6 +38,9 @@ function PreLogin() {
 
                 <Col >
                     <Logo />
+                    Your location: 
+                    {/* <Location /> */}
+                    
                 </Col>
                 <Col>
                 </Col>

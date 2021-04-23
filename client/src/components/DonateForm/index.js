@@ -5,7 +5,7 @@ import Buttons from "../Buttons"
 
 import API from '../../utils/API'
 import { useAuth } from "../../contexts/AuthContexts"
-
+import { useGeo } from "../../contexts/GeoContext"
 
 
 const DonateForm = (props) => {
@@ -16,6 +16,7 @@ const DonateForm = (props) => {
   })
 
   const { currentUser } = useAuth()
+  const { placeid } = useGeo()
 
   function handleFormChange(event) {
     const { name, value } = event.target;
@@ -30,7 +31,8 @@ const DonateForm = (props) => {
       title: formObject.title,
       description: formObject.description,
       firebaseId: currentUser.uid,
-      email: currentUser.email
+      email: currentUser.email,
+      placeid: placeid
     })
     .then(donationData => {
       console.log(donationData)

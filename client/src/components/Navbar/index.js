@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link} from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContexts"
 import "./style.css";
-import Location from '../Location'
+import { useGeo } from "../../contexts/GeoContext"
+
 function Navbar() {
     const { logout } = useAuth()
 
-
+    const { location } = useGeo()
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -35,7 +36,9 @@ function Navbar() {
             <li className="nav-item">
                 <Link to="/" className="nav-link" aria-current="page" href="#" onClick={()=> logout()}>lōgōut</Link>
             </li>
-            <li><Location /></li>
+            <li>
+                {location}
+            </li>
          </ul>
         </div>
         </div>

@@ -5,11 +5,13 @@ import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
 import { useAuth } from "../../contexts/AuthContexts"
+import { useGeo } from "../../contexts/GeoContext"
 
 
 const Post = () => {
     const [formObject, setFormObject] = useState({})
     const { currentUser } = useAuth()
+    const { placeid } = useGeo()
 
     function handleFormChange(event) {
         const { name, value } = event.target;
@@ -23,7 +25,8 @@ const Post = () => {
             API.createPost({
                 text: formObject.text,
                 firebaseId: currentUser.uid,
-                email: currentUser.email
+                email: currentUser.email,
+                placeid: placeid
             })
                 .then(res => console.log("HI"))
                 .catch(err => console.log(err));
