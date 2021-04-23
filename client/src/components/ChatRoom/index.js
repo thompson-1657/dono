@@ -36,7 +36,7 @@ height: 50px;
 
 function ChatRoom() {
     const { currentUser } = useAuth()
-    const [room, setRoom] = useState(currentUser.email)
+    const [room, setRoom] = useState("")
     const [connectID, setConnectId] = useState("")
     const [formValue, setFormValue] = useState('');
     const [userId, setUserId] = useState(currentUser.uid)
@@ -69,10 +69,10 @@ function ChatRoom() {
     const [messages] = useCollectionData(newMesg, { idField: room });
     console.log(messages)
 
-    const [users] = useCollectionData(userQuery);
+    const [users] = useCollectionData(userQuery, { idField: room} );
     console.log(users)
 
-    const [connect] = useCollectionData(guestQuery);
+    const [connect] = useCollectionData(guestQuery, { idField: "uid"});
     console.log(connect)
 
     const handleGroupClick = async (e) => {
@@ -125,6 +125,15 @@ function ChatRoom() {
         // dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
 
+    const deleteOnClick = async(e)=> {
+        e.preventDefault()
+        const { uid } = currentUser;
+        await usersRef.doc(uid)
+        .collection("connectRooms")
+        .doc(e.target.className)
+        .delete()
+    }
+
     return (
         <>
           <div className="container chatRoomContainer">
@@ -147,16 +156,18 @@ function ChatRoom() {
                                 </div>
                             </div>
                             <form className="emailAdd" onSubmit={addEmail}>
-                                <input className="msgInput" value={setRoom} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." required />
+                                <input className="msgInput" value={room} onChange={(e) => setRoom(e.target.value)} placeholder="add email.."  required />
                                 <Button className="messageBtn" type="submit" >Message</Button>
                             </form>
                         </div>
 
                         <ul>
                             {connect && connect.map(user => {
-                                return <li className={user.email} onClick={handleGroupClick}>
-                                    {user.email}
-                                </li>
+                                    console.log(user.uid)
+                                  return <>  <li className={user.email} onClick={handleGroupClick}>
+                                   {user.email} </li> 
+                                   <button className={user.uid} onClick={deleteOnClick}>x</button>
+                                   </>
                             })}
                         </ul>
                     </div>
