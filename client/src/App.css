@@ -54,7 +54,12 @@ html {
   border-radius: 2px;
   margin-left: 15px;
   margin-right: 15px;
-  box-shadow: 1px 1px #E66912;
+  box-shadow: 1px 1px #14829F;
+}
+
+.bg:hover {
+  box-shadow: 2px 2px #E66912;
+
 }
 .title {
   background-color: #14829F;

@@ -88,7 +88,7 @@ const Connect = ({ children }) => {
                   <Card.Body  text={posts.text}>{posts.text}</Card.Body>
                   {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
 
-                  <Chat postId={posts._id} />
+                  <Chat className="bg" postId={posts._id} />
                   <div className="msg">Chat history</div>
                   {posts.chats.map(chat => {
                     return (
