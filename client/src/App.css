@@ -2,10 +2,8 @@ body,
 html {
   width: 100%;
   height: 100vh;
-  /* margin: 0px; */
   padding: 0px;
   overflow: auto;
-
   background-color: #d8e3ec;
 }
 
