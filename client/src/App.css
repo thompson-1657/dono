@@ -30,3 +30,17 @@ html {
 .signUpContainer {
   height: 100vh;
 }
+
+.create {
+  text-align: right;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.msg {
+  text-align: left;
+}
+
+.card-title {
+  font-size: 36px;
+}

@@ -79,10 +79,10 @@ const Connect = ({ children }) => {
             {post.map(posts => {
               return (
                 <Card key={posts._id} className="main">
-                  <Card.Body>Post created by: {posts.email}</Card.Body>
+                  <Card.Body className="create">Post created by: {posts.email}</Card.Body>
 
-                  <Card.Body date={posts.date}>{posts.date}</Card.Body>
-                  <Card.Body text={posts.text}>{posts.text}</Card.Body>
+                  <Card.Body className="create" date={posts.date}>{posts.date}</Card.Body>
+                  <Card.Body  text={posts.text}>{posts.text}</Card.Body>
                   {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
 
                   <Chat postId={posts._id} />
@@ -111,10 +111,10 @@ const Connect = ({ children }) => {
             {donation.map(donations => {
               return (
                 <Card key={donations._id} className="main">
-                  <Card.Body>Donation posted by: {donations.email}</Card.Body>
+                  <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
 
-                  <Card.Body date={donations.date}>{donations.date}</Card.Body>
-                  <Card.Body title={donations.title}>{donations.title}</Card.Body>
+                  <Card.Body className="create" date={donations.date}>{donations.date}</Card.Body>
+                  <Card.Body  className="card-title" title={donations.title}>{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
                   {donations.firebaseId === currentUser.uid &&
@@ -125,7 +125,7 @@ const Connect = ({ children }) => {
 
                   {donations.chats.map(chat => {
                     return (
-                      <ul>{chat}</ul>
+                      <ul className="msg">{chat}</ul>
                     )
                   })}
                 </Card>
