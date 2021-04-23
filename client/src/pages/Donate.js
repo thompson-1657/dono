@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 import DonateCard from '../components/DonateCard'
-// import {Col, Container, Row} from 'react-bootstrap'
+import {Col, Row} from 'react-bootstrap'
 import donateCardData from '../donateCardData'
 import Navbar from '../components/Navbar' 
 
@@ -14,6 +14,12 @@ class Donate extends Component {
     return(
 <>
 <Navbar />
+      <Row>
+        <Col />
+      </Row>
+      <Row>
+        <Col>
+      
 <div className=" container donateContainer">
   <div className="row">
   {this.state.donateCardData.map(donate =>{
@@ -26,11 +32,16 @@ class Donate extends Component {
     />
       </div>
     )
-    })}
+  })}
       
    
   </div>
 </div>
+  </Col>
+  </Row>
+  <Row>
+    <Col />
+  </Row>
 
 
 
