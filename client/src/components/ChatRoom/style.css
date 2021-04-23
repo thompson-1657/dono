@@ -6,7 +6,7 @@
   outline: none;
   border: none;
   padding: 0 10px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 0 3px 6px #999;
 }
 
 .msgSubmit {
@@ -18,17 +18,18 @@
 .msgBack {
   background-color: #bebebe;
   margin-top: 50px;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 0 5px 8px #999, 2px 0 2px white;
 }
 
 .chatRoomContainer {
   height: 100vh;
+  overflow: auto;
 }
 
 .sendBtn {
   background-color: #1a262b;
   color: white;
-  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  box-shadow: 0 3px 6px #999;
 }
 
 .msgDirection {
@@ -43,10 +44,57 @@
   margin-bottom: 10px;
   border-radius: 0 !important;
   width: 67%;
+  /* background-color: #1a262b; */
+
   justify-content: center;
+}
+
+.dropdown-toggle {
+  color: white;
 }
 
 .userHeader {
   margin-top: 50px;
   text-align: center;
+}
+
+#userEmailList {
+  display: list-item;
+  list-style-type: "✉︎";
+  padding-inline-start: 1ch;
+  margin-left: 28px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .input-group-prepend {
+    width: 82%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .input-group-prepend {
+    width: 99%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .input-group-prepend {
+    /* margin-top: 20%; */
+    width: 99%;
+    position: absolute;
+    margin-top: 38%;
+  }
+
+  .userHeader {
+    margin-top: 20px;
+    text-align: center;
+  }
+  #userEmailList {
+    margin-left: 135px;
+  }
+}
+
+@media only screen and (max-width: 531px) {
+  .input-group-prepend {
+    margin: auto;
+  }
 }

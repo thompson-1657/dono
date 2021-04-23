@@ -6,6 +6,7 @@
   overflow: auto;
   margin-top: 40px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  margin-left: 50px;
 }
 
 .cardText {
@@ -62,4 +63,19 @@ img {
   top: -20px;
   left: -40px;
   box-shadow: 0 6px 9px -8px #333;
+}
+
+@media only screen and (max-width: 866px) {
+  .donateCard {
+    height: 40vh;
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .donateCard {
+    width: 100vw;
+    height: 40vh;
+    margin-left: 0;
+  }
 }
