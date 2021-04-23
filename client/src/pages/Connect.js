@@ -75,15 +75,15 @@ const Connect = ({ children }) => {
     <>
       <Navbar />
       <Container className="postContainer">
-      <h2 className="title">Community Posts</h2>
+      <h2 className="title ">Community Posts</h2>
 
         {post.length ? (
-          <div className="card">
+          <div className="card title card-shadow">
             {post.map(posts => {
               return (
                 <div >
                   {posts.placeid === placeid &&
-                    <Card key={posts._id} className="main title">
+                    <Card key={posts._id} className="main">
                       <Card.Body className="create">Post created by: {posts.email}</Card.Body>
 
                       <Card.Body className="create" date={posts.date}>{posts.date}<hr /></Card.Body>
@@ -117,16 +117,16 @@ const Connect = ({ children }) => {
         {donation.length ? (
           <>
           <h2 className="title">Donations</h2>
-          <div className="card">
+          <div className="card title card-shadow">
             {donation.map(donations => {
               return (
                 <div>
                 {donations.placeid === placeid &&
-                <Card key={donations._id} className="main title">
+                <Card key={donations._id} className="main">
                   <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
 
                   <Card.Body className="create" date={donations.date}>{donations.date}<hr /></Card.Body>
-                  <Card.Body title={donations.title}>{donations.title}</Card.Body>
+                  <Card.Body title={donations.title} className="card-title">{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
                   {donations.firebaseId === currentUser.uid &&

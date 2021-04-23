@@ -72,9 +72,14 @@ html {
   background-color: #14829F;
   border-radius: 4px; 
   text-align: center;
-  padding-top:5px;
-  box-shadow: 5px 5px;
+  padding:5px;
+  box-shadow: 5px 5px ;
+  margin: 10px;
   
+}
+
+.card-shadow {
+  box-shadow: 5px 5px #14829F
 }
 
 .titleh2{

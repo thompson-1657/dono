@@ -75,7 +75,7 @@ const Feed = (props) => {
 
   return (
     <>
-      <h2 className="posts">
+      <h2 className="title">
         General community posts
         </h2>
 
@@ -87,8 +87,8 @@ const Feed = (props) => {
                 {posts.placeid === placeid &&
 
                   <Card className="main">
-                    <Card.Body>Created by: {posts.email}</Card.Body>
-                    <Card.Body>{posts.date}</Card.Body>
+                    <Card.Body className="create">Created by: {posts.email}</Card.Body>
+                    <Card.Body className="create">{posts.date}<hr /></Card.Body>
                     <Card.Body>{posts.text}</Card.Body>
                     {/* <Card.Body>{posts.description}</Card.Body> */}
 
@@ -141,7 +141,7 @@ const Feed = (props) => {
 
 
 
-      <h2 className="posts">
+      <h2 className="title">
         Donation posts
         </h2>
 
@@ -153,9 +153,9 @@ const Feed = (props) => {
               <div>
                 {donations.placeid === placeid &&
                 <Card className="main">
-                  <Card.Body>Donation posted by: {donations.email}</Card.Body>
-                  <Card.Body>{donations.date}</Card.Body>
-                  <Card.Body>{donations.title}</Card.Body>
+                  <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
+                  <Card.Body className="create">{donations.date}<hr /></Card.Body>
+                  <Card.Body className="card-title">{donations.title}</Card.Body>
                   <Card.Body>{donations.description}</Card.Body>
 
                   <Link to="/connect"><Buttons
