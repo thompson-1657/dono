@@ -1,9 +1,8 @@
-import React from 'react'
-import Circle from '../components/Circle'
-import Rectangle from '../components/Rectangle'
-// import Buttons from '../components/Buttons'
-import Logo from '../components/Logo'
-import { Col, Row } from 'react-bootstrap'
+import React from "react"
+import Circle from "../components/Circle"
+import Rectangle from "../components/Rectangle"
+import Logo from "../components/Logo"
+import { Col, Row } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 
@@ -23,9 +22,8 @@ const Button = styled.button`
     height:4vh;
     width:16vw;
     margin-top:30px;
-    
+    font-size:12px;
     }
-
 `
 
 
@@ -71,6 +69,5 @@ function PreLogin() {
 
     )
 }
-
 
 export default PreLogin
