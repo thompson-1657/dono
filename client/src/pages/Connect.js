@@ -75,6 +75,9 @@ const Connect = ({ children }) => {
       <Navbar />
       <Container className="postContainer">
         {post.length ? (
+                    <div className="title">
+          <h2 className="titleh2">Community Posts</h2>
+
           <div className="card">
             {post.map(posts => {
               return (
@@ -101,6 +104,7 @@ const Connect = ({ children }) => {
               )
             })}
           </div>
+          </div>
 
         ) : (
           <h3>No Posts to Display</h3>
@@ -108,6 +112,8 @@ const Connect = ({ children }) => {
 
 
         {donation.length ? (
+          <div className="title">
+          <h2 className="titleh2">Donations</h2>
           <div className="card">
             {donation.map(donations => {
               return (
@@ -140,7 +146,7 @@ const Connect = ({ children }) => {
               )
             })}
           </div>
-
+          </div>
 
         ) : (
           <h3>No donations to Display</h3>
