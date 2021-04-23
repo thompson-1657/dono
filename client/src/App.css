@@ -28,3 +28,11 @@ html {
 .signUpContainer {
   height: 100vh;
 }
+
+#loginCard,
+#signUpCard {
+  border-left: 6px solid #14829f;
+  border-bottom: 6px solid #14829f;
+  border-right: 6px solid #14829f;
+  box-shadow: -4px 9px 9px #333333;
+}
