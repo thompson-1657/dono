@@ -12,8 +12,6 @@ import Navbar from '../Navbar'
 import PostFeed from '../PostFeed'
 import Post from '../Post'
 
-
-
 function Main() {
     return (
         <>

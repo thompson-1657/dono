@@ -29,7 +29,6 @@ html {
   height: 100vh;
 }
 
-
 #loginCard,
 #signUpCard {
   border-left: 6px solid #14829f;
@@ -46,7 +45,6 @@ html {
 
 .msg {
   text-align: left;
-  
 }
 
 .card-title {
@@ -61,29 +59,29 @@ html {
   border-radius: 2px;
   margin-left: 15px;
   margin-right: 15px;
-  box-shadow: 1px 1px #14829F;
+  box-shadow: 1px 1px #14829f;
 }
 
 .bg:hover {
-  box-shadow: 2px 2px #E66912;
-
+  box-shadow: 2px 2px #e66912;
 }
 .title {
-  background-color: #14829F;
-  border-radius: 4px; 
+  background-color: #14829f;
+  border-radius: 4px;
   text-align: center;
-  padding:5px;
-  box-shadow: 5px 5px ;
+  padding: 5px;
+  box-shadow: 5px 5px;
   margin: 10px;
-  
 }
 
 .card-shadow {
-  box-shadow: 5px 5px #14829F
+  box-shadow: 5px 5px #14829f;
 }
 
-.titleh2{
+.titleh2 {
   text-align: center;
-
 }
 
+.preLoginContainer {
+  height: 100vh;
+}
