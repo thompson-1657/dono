@@ -3,6 +3,8 @@ import { Link} from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContexts"
 import "./style.css";
 import { useGeo } from "../../contexts/GeoContext"
+import LocationSearch from "../LocationSearch"
+
 
 function Navbar() {
     const { logout } = useAuth()
@@ -38,6 +40,9 @@ function Navbar() {
             </li>
             <li>
                 {location}
+            </li>
+            <li>
+                <LocationSearch />
             </li>
          </ul>
         </div>
