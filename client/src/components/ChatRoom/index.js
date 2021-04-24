@@ -49,7 +49,7 @@ function ChatRoom() {
     const [users] = useCollectionData(userQuery);
     console.log(users)
 
-    const [connect] = useCollectionData(guestQuery);
+    const [connect] = useCollectionData(guestQuery, { idField: room });
     console.log(connect)
 
     const handleGroupClick = async (e) => {
@@ -129,9 +129,12 @@ function ChatRoom() {
 
                         <ul>
                             {connect && connect.map(user => {
-                                return <li className={user.email} onClick={handleGroupClick}>
+                                return <>
+                                <li className={user.email} onClick={handleGroupClick}>
                                     {user.email}
                                 </li>
+                                <button className={user.uid} onClick={handleDeleteOnClick}> </button>
+                                </>
                             })}
                         </ul>
                     </div>
