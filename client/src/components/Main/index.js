@@ -5,7 +5,7 @@ import { Row, Col} from 'react-bootstrap'
 import './style.css'
 import Poll from '../Poll'
 import Feed from '../Feed'
-import Donate from '../Donate'
+import DonateFeed from '../DonateFeed'
 import Connect from '../Connect'
 // import Menu from '../Menu'
 import Navbar from '../Navbar'
@@ -29,15 +29,16 @@ function Main() {
         </Col>
         <Col sm={6}>
         <div className="feed-container">
-        <Feed />
+        
+        <DonateFeed />
+
         </div>
         </Col>
         <Col sm={3}>
-        <div className="donate-container">   
-        <Donate />
+        <div className="donate-container"> 
+        <Feed />  
         </div> 
         <div className="connect-container">
-        <Connect />
         </div>
         <Post />
         </Col>
