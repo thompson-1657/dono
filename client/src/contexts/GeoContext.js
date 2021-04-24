@@ -22,8 +22,8 @@ export function useGeo() {
 
 export function GeoProvider({ children }) {
 
-    const [location, setLocation] = useState()
-    const [placeid, setPlaceid] = useState()
+    const [location, setLocation] = useState("dono cannot find your location")
+    const [placeid, setPlaceid] = useState("place.12345")
 
     useEffect(() => {
         locationAPI()
