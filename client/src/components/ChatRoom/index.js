@@ -1,14 +1,16 @@
-
-import React, {useState} from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { db } from "../../firebase"
 import { useAuth } from "../../contexts/AuthContexts"
-import { useCollectionData } from "react-firebase-hooks/firestore"
+import { useCollectionData, useCollectionOnce } from "react-firebase-hooks/firestore"
+import { FormControl, InputGroup } from "react-bootstrap"
 import Row from "../Row"
 import Col from "../Col"
 import ChatMessage from "../ChatMsg"
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "./style.css"
+import { set } from "mongoose"
+import { BsTrashFill } from 'react-icons/bs'
 
 import styled from "styled-components"
 
@@ -30,7 +32,7 @@ function ChatRoom() {
     const [room, setRoom] = useState(currentUser.email)
     const [connectID, setConnectId] = useState("")
     const [formValue, setFormValue] = useState('');
-    const [userId] = useState(currentUser.uid)
+    const [userId, setUserId] = useState(currentUser.uid)
     console.log(userId)
     console.log(currentUser.email)
     console.log(room)
@@ -44,7 +46,7 @@ function ChatRoom() {
     chatIDpre.sort();
     chatIDpre.join('_');
 
-    // const dummy = useRef();
+    const dummy = useRef();
 
     const usersRef = db.collection('users');
     const chatRoom = db.collection('chatRoom');
@@ -160,7 +162,7 @@ function ChatRoom() {
                                 className={user.email} onClick={handleGroupClick}>
                                     {user.email}
                                 </li>
-                                <button className={user.uid} onClick={handleDeleteOnClick}>x</button>
+                                <button id="deleteButton" className={user.uid} onClick={handleDeleteOnClick}><BsTrashFill /></button>
                                 </>
                             })}
                         </ul>
@@ -186,3 +188,4 @@ function ChatRoom() {
 }
 
 export default ChatRoom
+

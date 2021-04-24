@@ -55,7 +55,12 @@
 
 .userHeader {
   margin-top: 50px;
+  background-color: #14829f;
+  border-radius: 4px;
   text-align: center;
+  padding: 5px;
+  box-shadow: 5px 5px;
+  margin: 10px;
 }
 
 #userEmailList {
@@ -63,6 +68,13 @@
   list-style-type: "✉︎";
   padding-inline-start: 1ch;
   margin-left: 28px;
+}
+
+#deleteButton {
+  position: relative;
+  top: 36%;
+  left: 50%;
+  background-color: ;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -78,10 +90,7 @@
 }
 @media only screen and (max-width: 767px) {
   .input-group-prepend {
-    /* margin-top: 20%; */
-    width: 99%;
-    position: absolute;
-    margin-top: 38%;
+    margin: auto;
   }
 
   .userHeader {
