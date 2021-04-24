@@ -33,7 +33,7 @@ function PreLogin() {
     const history = useHistory()
 
     return (
-        <>
+        <div className="preLoginContainer">
             <Row>
 
                 <Col >
@@ -68,7 +68,7 @@ function PreLogin() {
             <Row>
                 <Col />
             </Row>
-        </>
+        </div>
 
 
     )
