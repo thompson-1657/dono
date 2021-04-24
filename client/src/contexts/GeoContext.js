@@ -72,7 +72,9 @@ export function GeoProvider({ children }) {
 
     const locationValue = {
         location,
-        placeid
+        placeid,
+        setPlaceid,
+        setLocation
     }
 
 
