@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 // import { useAuth } from "../../contexts/AuthContexts"
 // import "./style.css";
@@ -18,10 +18,10 @@ const LocationSearch = () => {
 
     // const [location, setLocation] = useState("dono is unable to find your location")
     // const [placeid, setPlaceid] = useState("place.6694790146427640")
-    const { location } = useGeo()
+    const {  setPlaceid, setLocation } = useGeo()
     const [formObject, setFormObject] = useState({})
-    const [newLocation, setNewLocation] = useState()
-    const [newPlaceid, setNewPlaceid] = useState()
+    // const [newLocation, setNewLocation] = useState()
+    // const [newPlaceid, setNewPlaceid] = useState()
 
     // useEffect(() => {
     //     s()
@@ -46,8 +46,8 @@ const LocationSearch = () => {
                     console.log(res.data.features[i].place_name)
                     console.log(res.data.features[i].id)
 
-                    setNewLocation(res.data.features[i].place_name)
-                    setNewPlaceid(res.data.features[i].id)
+                    setLocation(res.data.features[i].place_name)
+                    setPlaceid(res.data.features[i].id)
                     
                 }
             }
