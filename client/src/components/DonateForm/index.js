@@ -52,7 +52,7 @@ const DonateForm = (props) => {
         onChange={handleFormChange} type="item" />
       </Form.Group>
       <Form.Group>
-        <Form.File id="exampleFormControlFile1" label="Submit a photo of your donation" />
+        <Form.File id="exampleFormControlFile1" label="Submit a photo of your donation" onChange={e => {console.log(e.target.files)}}/>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>If you would like, describe the item(s) you are donating</Form.Label>

@@ -65,7 +65,7 @@ function ChatRoom() {
     const [users] = useCollectionData(userQuery);
     console.log(users)
 
-    const [connect] = useCollectionData(guestQuery);
+    const [connect] = useCollectionData(guestQuery, { idField: "uid" });
     console.log(connect)
 
     const handleGroupClick = async (e) => {
@@ -74,6 +74,16 @@ function ChatRoom() {
         setConnectId(e.target.id)
         console.log(room)
         console.log(connectID)
+    }
+    const handleDeleteOnClick = async (e) => {
+        e.preventDefault()
+        const { uid } = currentUser;
+        console.log(e.target.className)
+        await usersRef
+        .doc(uid)
+        .collection("connectRooms")
+        .doc(e.target.className)
+        .delete()
     }
 
     const addEmail = async (e) => {
@@ -147,11 +157,13 @@ function ChatRoom() {
 
                         <ul>
                             {connect && connect.map(user => {
-                                return <li 
+                                return <><li 
                                 id="userEmailList"
                                 className={user.email} onClick={handleGroupClick}>
                                     {user.email}
                                 </li>
+                                <button className={user.uid} onClick={handleDeleteOnClick}>x</button>
+                                </>
                             })}
                         </ul>
                     </div>
