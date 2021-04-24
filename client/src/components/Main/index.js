@@ -11,12 +11,13 @@ import Connect from '../Connect'
 import Navbar from '../Navbar'
 import Post from '../Post'
 
+
 function Main() {
     return( 
     <>
     <Navbar />
 
-    <div className="home">    
+    <div className="home homeContainer">    
 
     <Row className="head">
     
