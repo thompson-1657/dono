@@ -86,7 +86,7 @@ const Connect = ({ children }) => {
                     <Card key={posts._id} className="main">
                       <Card.Body className="create">Post created by: {posts.email}</Card.Body>
 
-                      <Card.Body className="create" date={posts.date}>{posts.date}<hr /></Card.Body>
+                      <Card.Body className="create" date={posts.date}>{posts.date.split("T")[0]}<hr /></Card.Body>
                       <Card.Body text={posts.text}>{posts.text}</Card.Body>
                       {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
 
@@ -125,7 +125,7 @@ const Connect = ({ children }) => {
                 <Card key={donations._id} className="main">
                   <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
 
-                  <Card.Body className="create" date={donations.date}>{donations.date}<hr /></Card.Body>
+                  <Card.Body className="create" date={donations.date}>{donations.date.split("T")[0]}<hr /></Card.Body>
                   <Card.Body title={donations.title} className="card-title">{donations.title}</Card.Body>
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
