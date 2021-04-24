@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import './style.css'
 import '../../App.css'
@@ -16,7 +16,7 @@ const Feed = (props) => {
   const { currentUser } = useAuth()
   const { placeid } = useGeo()
 
-  const isCreator = true
+  // const isCreator = true
 
   useEffect(() => {
     loadPosts()
@@ -25,11 +25,9 @@ const Feed = (props) => {
   function loadPosts() {
     API.getPosts()
       .then(res =>
-        // console.log(res.data)
         setPosts(res.data)
 
       )
-      //   .then(console.log(data))
       .catch(err => console.log(err));
   };
 

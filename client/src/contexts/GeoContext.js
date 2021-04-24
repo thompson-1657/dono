@@ -50,7 +50,7 @@ export function GeoProvider({ children }) {
 
                     console.log(res)
                     for (var i = 0; i < res.data.features.length; i++) {
-                        if (res.data.features[i].place_type[0] == "place") {
+                        if (res.data.features[i].place_type[0] === "place") {
                             // console.log(res.data.features[i].place_name)
                             setLocation(res.data.features[i].place_name)
                             setPlaceid(res.data.features[i].id)

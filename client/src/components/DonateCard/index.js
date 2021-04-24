@@ -1,6 +1,5 @@
-import React , {useState} from 'react'
+import React from 'react'
 import {Card} from 'react-bootstrap'
-import Buttons from "../Buttons"
 import DonateForm from '../DonateForm'
 import DonateIcon from '../DonateIcon'
 
