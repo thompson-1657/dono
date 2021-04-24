@@ -11,6 +11,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
+    const [loading, setLoading] = useState(true)
     auth.onAuthStateChanged((user) => {
         if (user) {
             // User logged in already or has just logged in.
@@ -50,6 +51,7 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
+            setLoading(false)
         })
         return unsubscribe
     }, [])
@@ -66,7 +68,7 @@ export function AuthProvider({ children }) {
 
     return (
         <AuthContexts.Provider value={value}>
-            {children}
+            {!loading && children}
         </AuthContexts.Provider>
     )
 
