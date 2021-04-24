@@ -76,7 +76,7 @@ const Poll = () => {
       {poll_.length ? (
 
         <div>
-          <p className="poll">Poll</p>
+          <p className="poll title card-title">Poll</p>
           {poll_.map(polls => {
             return (
               <div>
