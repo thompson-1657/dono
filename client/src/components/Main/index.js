@@ -17,7 +17,7 @@ function Main() {
     <>
     <Navbar />
 
-    <div className="home homeContainer">    
+    <div className="home">    
 
     <Row className="head">
     
