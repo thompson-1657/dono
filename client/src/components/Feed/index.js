@@ -97,12 +97,7 @@ const Feed = (props) => {
                       value="Connect"
 
                     >Connect</Buttons></Link>{' '}
-                    {posts.firebaseId === currentUser.uid &&
-                      <BsTrashFill
-                        className="trash"
-                        name="id"
-                        onClick={() => handleDeletePostClick(posts._id)}
-                        style={{ width: "20px", height: "20px", marginTop: "5px", marginRight: "10px" }} />}
+                   
                     {/* <p><img name="id" 
               <Card className="main ">
                 <Card.Body className="create">Created by: {posts.email}</Card.Body>
