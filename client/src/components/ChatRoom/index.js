@@ -29,10 +29,10 @@ height: 50px;
 
 function ChatRoom() {
     const { currentUser } = useAuth()
-    const [room, setRoom] = useState(currentUser.email)
+    const [room, setRoom] = useState("")
     const [connectID, setConnectId] = useState("")
-    const [formValue, setFormValue] = useState('');
     const [userId, setUserId] = useState(currentUser.uid)
+    const [formValue, setFormValue] = useState('');
     console.log(userId)
     console.log(currentUser.email)
     console.log(room)
@@ -150,7 +150,7 @@ function ChatRoom() {
                                 </div>
                             </div>
                             <form className="emailAdd" onSubmit={addEmail}>
-                                <input className="msgInput" value={room} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." />
+                                <input className="msgInput" value={room} onChange={(e) => setRoom(e.target.value)} placeholder="add email.." required />
                                 <Button className="messageBtn" type="submit" >Message</Button>
                             </form>
                         </div>
@@ -162,7 +162,7 @@ function ChatRoom() {
                                 className={user.email} onClick={handleGroupClick}>
                                     {user.email}
                                 </li>
-                                <button id="deleteButton" className={user.uid} onClick={handleDeleteOnClick}><BsTrashFill /></button>
+                                <button id="deleteButton" className={user.uid} onClick={handleDeleteOnClick}></button>
                                 </>
                             })}
                         </ul>

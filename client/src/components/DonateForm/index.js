@@ -25,6 +25,7 @@ const DonateForm = (props) => {
     e.preventDefault()
     const file = e.target.files
     console.log(file)
+    setFileUrl(file)
   };
 
 
