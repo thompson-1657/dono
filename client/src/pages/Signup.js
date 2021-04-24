@@ -18,15 +18,17 @@ export default function Signup() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await signup(emailRef.current.value, passwordRef.current.value);
+            await signup(emailRef.current.value, passwordRef.current.value); 
+            history.push("/home")
             console.log(currentUser.uid)
             API.createUser({
                 email: emailRef.current.value,
                 firebaseId: currentUser.uid
                 // firebaseId: uidRef.current.value
             })
+            
             .then(res => {
-                history.push("/home")
+               
                 console.log("hi")
             })
             .catch(err => console.log(err));
