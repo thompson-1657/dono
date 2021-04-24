@@ -1,14 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 
-
-
 export const GeoContext = createContext(null)
-
-
-
-
-
 
 const API_KEY = process.env.REACT_APP_MAPBOX_API
 // import Location from '../components/Location'
@@ -22,8 +15,10 @@ export function useGeo() {
 
 export function GeoProvider({ children }) {
 
-    const [location, setLocation] = useState()
-    const [placeid, setPlaceid] = useState()
+    const [location, setLocation] = useState("dono is unable to find your location")
+    const [placeid, setPlaceid] = useState("place.12345")
+
+    console.log(placeid)
 
     useEffect(() => {
         locationAPI()
