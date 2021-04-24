@@ -1,6 +1,5 @@
 import React from "react"
 import { useAuth } from "../../contexts/AuthContexts"
-import Row from "../Row"
 import "./style.css"
 
 export default function ChatMessage(props) {

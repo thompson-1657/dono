@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import {Form, Col, Row, Button} from 'react-bootstrap'
+import React, { useState } from 'react'
+import {Form, Col, Row} from 'react-bootstrap'
 import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"

@@ -18,7 +18,7 @@ const Connect = ({ children }) => {
 
   const [post, setPosts] = useState([])
   const { currentUser } = useAuth()
-  const { placeid, location } = useGeo()
+  const { placeid } = useGeo()
 
   useEffect(() => {
     loadPosts()

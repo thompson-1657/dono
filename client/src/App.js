@@ -16,7 +16,6 @@ import Home from './pages/Home'
 // import Chat from './components/Chat'
 // import Menu from './components/Menu'
 import Donate from './pages/Donate'
-import ChatRooms from './pages/ChatRooms'
 import PreLogin from './pages/PreLogin'
 import Connect from './pages/Connect'
 import ChatRoom from "./pages/ChatRooms";
