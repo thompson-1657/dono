@@ -1,26 +1,16 @@
 import React from "react";
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContexts"
 import { GeoProvider } from "./contexts/GeoContext"
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { fab } from '@fortawesome/free-brands-svg-icons'
-// import Main from "./pages/Main";
-// import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute"
 import Home from './pages/Home'
-// import Poll from './components/Poll'
-// import Feed from './components/Feed'
-// import Chat from './components/Chat'
-// import Menu from './components/Menu'
 import Donate from './pages/Donate'
 import PreLogin from './pages/PreLogin'
 import Connect from './pages/Connect'
 import ChatRoom from "./pages/ChatRooms";
-// library.add(fab)
-
+import './App.css';
 
 function App() {
     return (

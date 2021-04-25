@@ -1,9 +1,9 @@
 import React from "react";
 import { Link} from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContexts"
-import "./style.css";
 import { useGeo } from "../../contexts/GeoContext"
 import LocationSearch from "../LocationSearch"
+import "./style.css";
 
 
 function Navbar() {

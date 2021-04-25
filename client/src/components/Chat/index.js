@@ -10,8 +10,6 @@ const Chat = (props) => {
   const { currentUser } = useAuth()
 
   const handleSubmitClickPost = (id, chats) => {
-    // event.preventDefault()
-    // const id = props.postId
     console.log(chats)
     
     
@@ -30,8 +28,6 @@ const Chat = (props) => {
   }
 
   const handleSubmitClickDonate = (id, chats) => {
-    // event.preventDefault()
-    // const id = props.postId
     console.log(id)
     console.log(chats)
         

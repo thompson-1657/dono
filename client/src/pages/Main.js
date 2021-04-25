@@ -46,9 +46,6 @@ function Main(){
         <Button variant="link" onClick={handleLogout}>Log Out</Button>
         </>
     )
-
-
-    
 }
 
 export default Main 

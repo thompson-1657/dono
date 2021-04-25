@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Card } from 'react-bootstrap'
-// import ChatRoom from "../components/ChatRoom"
 import API from '../utils/API'
-import "../App.css"
 import { useAuth } from "../contexts/AuthContexts"
 import { useGeo } from "../contexts/GeoContext"
-
-
 import Chat from '../components/Chat'
 import Navbar from '../components/Navbar'
 import { BsTrashFill } from 'react-icons/bs'
-
-
-// import Post from '../components/Post'
+import "../App.css"
 
 const Connect = ({ children }) => {
 
@@ -44,17 +38,13 @@ const Connect = ({ children }) => {
   function loadDonations() {
     API.getDonations()
       .then(res =>
-        // console.log(res.data)
         setDonations(res.data)
 
       )
-      //   .then(console.log(data))
       .catch(err => console.log(err));
   };
 
   const handleDeletePostClick = (id) => {
-    // console.log("click")
-    // console.log(id)
     API.deletePost(id)
       .then(res => {
         console.log(res)
@@ -62,8 +52,6 @@ const Connect = ({ children }) => {
   }
 
   const handleDeleteDonationClick = (id) => {
-    // console.log("click")
-    // console.log(id)
     API.deleteDonation(id)
       .then(res => {
         console.log(res)
@@ -88,8 +76,6 @@ const Connect = ({ children }) => {
 
                       <Card.Body className="create" date={posts.date}>{posts.date.split("T")[0]}<hr /></Card.Body>
                       <Card.Body text={posts.text}>{posts.text}</Card.Body>
-                      {/* <Card.Body description={posts.description}>{posts.description}</Card.Body> */}
-
                       <Chat postId={posts._id} />
                       <div className="msg">Chat History</div>
                       {posts.chats.map(chat => {
@@ -155,13 +141,10 @@ const Connect = ({ children }) => {
         ) : (
           <h3>No donations to Display</h3>
         )}
-        {/* <Chat /> */}
 
       </Container>
     </>
   )
 }
 
-// onChange={handleFormChange}
-// onClick={() => handleSubmitClick(post._id)}
 export default Connect

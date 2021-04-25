@@ -2,15 +2,13 @@ import React, { useRef, useState} from "react"
 import { db } from "../../firebase"
 import { useAuth } from "../../contexts/AuthContexts"
 import { useCollectionData} from "react-firebase-hooks/firestore"
-// import { FormControl, InputGroup } from "react-bootstrap"
 import Row from "../Row"
 import Col from "../Col"
 import ChatMessage from "../ChatMsg"
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "./style.css"
-// import { set } from "mongoose"
-import { BsTrashFill } from 'react-icons/bs'
+
 
 import styled from "styled-components"
 
@@ -125,7 +123,7 @@ function ChatRoom() {
                 email
             })
         setFormValue('');
-        // dummy.current.scrollIntoView({ behavior: 'smooth' });
+    
     }
 
     return (
@@ -162,7 +160,7 @@ function ChatRoom() {
                                 className={user.email} onClick={handleGroupClick}>
                                     {user.email}
                                 </li>
-                                <button id="deleteButton" className={user.uid} onClick={handleDeleteOnClick}><BsTrashFill /></button>
+                                <button id="deleteButton" className={user.uid} onClick={handleDeleteOnClick}>x</button>
                                 </>
                             })}
                         </ul>
