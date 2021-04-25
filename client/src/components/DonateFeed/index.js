@@ -58,7 +58,13 @@ const DonateFeed = () => {
                     <Card.Body className="create">Donation posted by: {donations.email}</Card.Body>
                     <Card.Body className="create">{donations.date.split("T")[0]}<hr /></Card.Body>
                     <Card.Body className="card-title">{donations.title}</Card.Body>
-                    <Card.Img src={donations.imageURL}  as={Image} fluid={true} alt="Card image" />
+                    {donations.imageURL &&
+                    <Card.Img src={donations.imageURL} style={
+                      {  display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        width: "50%"}
+                      } as={Image} fluid={true} alt="Card image" />}
                     <Card.Body>{donations.description}</Card.Body>
 
                     <Link to="/connect"><Buttons
