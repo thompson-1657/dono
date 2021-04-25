@@ -9,7 +9,7 @@ const Connect = () => (
     <Buttons className="connect">
     Connect
     </Buttons>
-    </Link>
+  </Link>
     
 
 

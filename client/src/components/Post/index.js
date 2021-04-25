@@ -1,11 +1,10 @@
 import React, {useState } from 'react'
 import { Form } from 'react-bootstrap'
-
-import './style.css'
 import API from '../../utils/API'
 import Buttons from "../Buttons"
 import { useAuth } from "../../contexts/AuthContexts"
 import { useGeo } from "../../contexts/GeoContext"
+import './style.css'
 
 
 const Post = () => {
@@ -20,7 +19,6 @@ const Post = () => {
 
     function handlePostFormSubmit(event) {
         event.preventDefault()
-        // console.log(formObject)
         if (formObject.text) {
             API.createPost({
                 text: formObject.text,
@@ -32,8 +30,6 @@ const Post = () => {
                 .catch(err => console.log(err));
         }
     }
-
-
     return (
         <Form className="poll">
             <Form.Group>
@@ -44,15 +40,11 @@ const Post = () => {
             <Buttons
                 onClick={handlePostFormSubmit}
                 variant="primary" type="submit"
-                id="pollSubmit"
-
-            >
+                id="pollSubmit">
                 Submit
-    </Buttons>
-
-        </Form>
+            </Buttons>
+            </Form>
     )
-
 }
 
 export default Post

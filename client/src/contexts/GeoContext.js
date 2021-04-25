@@ -1,14 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 
-
-
 export const GeoContext = createContext(null)
-
-
-
-
-
 
 const API_KEY = process.env.REACT_APP_MAPBOX_API
 // import Location from '../components/Location'
@@ -76,8 +69,6 @@ export function GeoProvider({ children }) {
         setPlaceid,
         setLocation
     }
-
-
 
     // console.log(location)
 

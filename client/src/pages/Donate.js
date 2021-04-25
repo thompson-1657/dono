@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import DonateCard from '../components/DonateCard'
 import {Col, Row} from 'react-bootstrap'
 import donateCardData from '../donateCardData'
@@ -13,17 +12,16 @@ class Donate extends Component {
   render(){
     return(
 <>
-<Navbar />
+  <Navbar />
       <Row>
         <Col />
       </Row>
       <Row>
         <Col>
-      
-<div className=" container donateContainer">
-  <div className="row">
-  {this.state.donateCardData.map(donate =>{
-    return(
+          <div className=" container donateContainer">
+          <div className="row">
+          {this.state.donateCardData.map(donate =>{
+  return(
       <div className="col-md-6">
          <DonateCard 
     title={donate.title}
@@ -33,32 +31,18 @@ class Donate extends Component {
       </div>
     )
   })}
-      
-   
-  </div>
-</div>
-  </Col>
-  </Row>
-  <Row>
-    <Col />
-  </Row>
-
-
-
-
-
-
-
-
-
+      </div>
+    </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col />
+      </Row>
 </>
     )
   }
 }  
             
-   
-  
-
-  export default Donate
+export default Donate
 
  
