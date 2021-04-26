@@ -8,22 +8,19 @@ export function useAuth() {
     return useContext(AuthContexts)
 }
 
-
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
     auth.onAuthStateChanged((user) => {
         if (user) {
-            // User logged in already or has just logged in.
             console.log("Save user to firestore", user.uid)
-
             const userRef = db.collection("users");
             userRef.doc(user.uid).set({
                 uid: user.uid,
                 email: user.email
             })
         } else {
-            // User not logged in or has just logged out.
+            // User not logged in 
         }
     });
 
@@ -47,7 +44,6 @@ export function AuthProvider({ children }) {
         })
     }
 
-
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
@@ -55,7 +51,6 @@ export function AuthProvider({ children }) {
         })
         return unsubscribe
     }, [])
-
 
     const value = {
         currentUser,
@@ -65,11 +60,9 @@ export function AuthProvider({ children }) {
         saveUserToFirestore,
     }
 
-
     return (
         <AuthContexts.Provider value={value}>
             {!loading && children}
         </AuthContexts.Provider>
     )
-
 }

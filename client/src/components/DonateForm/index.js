@@ -44,9 +44,10 @@ const DonateForm = (props) => {
     console.log(formObject.title)
     const { image } = imageState;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    // Josh progress function -- https://stackoverflow.com/questions/16955980/git-merge-hotfix-branch-into-feature-branch
     uploadTask.on("state_changed", snapshot => {
-      // Josh progress function --
-      const  progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       console.log('Upload is ' + progress + '% done')
     }, error => {
       console.log(error)

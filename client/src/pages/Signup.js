@@ -48,14 +48,14 @@ export default function Signup() {
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} required />
+                            <Form.Control type="password" ref={passwordRef} required placeholder="password must be at least 6 characters"/>
                         </Form.Group>
                         <Buttons className="w-100" type="submit">SignUp</Buttons>
                     </Form>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                already have an account <Link className="loginLink" to="/login">Log in</Link>
+                Already have an account? <Link className="loginLink" to="/login">Log in</Link>
             <Circle />
             </div>
         </div>
