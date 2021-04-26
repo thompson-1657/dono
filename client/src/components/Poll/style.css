@@ -11,11 +11,16 @@
 
 p {
   text-align: center;
+  
 
 }
 
 .check:hover {
   color: green;
+}
+
+.poll-title {
+  font-size: 24px;
 }
 
 
