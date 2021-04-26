@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Card } from 'react-bootstrap'
+import { Container, Card, Image } from 'react-bootstrap'
 import API from '../utils/API'
 import { useAuth } from "../contexts/AuthContexts"
 import { useGeo } from "../contexts/GeoContext"
@@ -113,6 +113,13 @@ const Connect = ({ children }) => {
 
                   <Card.Body className="create" date={donations.date}>{donations.date.split("T")[0]}<hr /></Card.Body>
                   <Card.Body title={donations.title} className="card-title">{donations.title}</Card.Body>
+                  {donations.imageURL &&
+                    <Card.Img src={donations.imageURL} style={
+                      {  display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        width: "50%"}
+                      } as={Image} fluid={true} alt="Card image" />}
                   <Card.Body description={donations.description}>{donations.description}</Card.Body>
 
                   {donations.firebaseId === currentUser.uid &&
