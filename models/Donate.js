@@ -9,6 +9,9 @@ const donateSchema = new Schema({
     description: {
         type: String,
     },
+    imageURL: {
+        type: String
+    },
     typeOfDonation: {
         type: String,
     },

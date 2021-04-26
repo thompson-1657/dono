@@ -37,9 +37,7 @@ function PreLogin() {
             <Row>
 
                 <Col >
-                    <Logo />
-                    {/* <Location /> */}
-                    
+                    <Logo />    
                 </Col>
                 <Col>
                 </Col>
@@ -69,8 +67,6 @@ function PreLogin() {
                 <Col />
             </Row>
         </div>
-
-
     )
 }
 

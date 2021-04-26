@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth"
 import "firebase/firestore"
+import "firebase/storage";
 
 
 const app = firebase.initializeApp({
@@ -13,6 +14,7 @@ const app = firebase.initializeApp({
     measurementId: process.env.REACT_APP_FIREBASE_MWASUREMENT_ID
 })
 
+export const storage = firebase.storage()
 export const auth = app.auth()
 export const db = firebase.firestore()
 export default app 

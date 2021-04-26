@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import './style.css'
 import Buttons from "../Buttons"
-import { auth } from "../../firebase"
+import { auth, storage } from "../../firebase"
 import API from '../../utils/API'
 import { useAuth } from "../../contexts/AuthContexts"
 import { useGeo } from "../../contexts/GeoContext"
 
 
 const DonateForm = (props) => {
-  const [fileUrl, setFileUrl] = useState(null);
+
   const [formObject, setFormObject] = useState({
     title: "",
     description: "",
@@ -17,15 +17,19 @@ const DonateForm = (props) => {
 
   const { currentUser } = useAuth()
   const { placeid } = useGeo()
+  const [imageState, setImageState] = useState({
+    image: null,
+    url: "",
+  })
 
 
-
-
-  const onFileChange = async (e) => {
-    e.preventDefault()
-    const file = e.target.files
-    console.log(file)
-    setFileUrl(file)
+  const handleChange = e => {
+    if (e.target.files[0]) {
+      const image = e.target.files[0];
+      console.log(image)
+      setImageState({ image });
+      console.log(imageState)
+    }
   };
 
 
@@ -35,22 +39,44 @@ const DonateForm = (props) => {
   };
 
   function handleClick(e) {
+
     e.preventDefault()
     console.log(formObject.title)
+    const { image } = imageState;
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    // Josh progress function -- https://stackoverflow.com/questions/16955980/git-merge-hotfix-branch-into-feature-branch
+    uploadTask.on("state_changed", snapshot => {
 
-    API.createDonation({
-      title: formObject.title,
-      description: formObject.description,
-      firebaseId: currentUser.uid,
-      email: currentUser.email,
-      placeid: placeid
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      console.log('Upload is ' + progress + '% done')
+    }, error => {
+      console.log(error)
+    }, async () => {
+      await storage
+        .ref("images")
+        .child(image.name)
+        .getDownloadURL()
+        .then(url => {
+          setImageState({ url })
+          API.createDonation({
+            title: formObject.title,
+            imageURL: url,
+            description: formObject.description,
+            firebaseId: currentUser.uid,
+            email: currentUser.email,
+            placeid: placeid
+          })
+            .then(donationData => {
+              console.log(donationData)
+            })
+            .catch(err => console.log(err));
+        });
+
     })
-      .then(donationData => {
-        console.log(donationData)
-      })
-      .catch(err => console.log(err));
 
   }
+
+
 
 
   return (
@@ -63,7 +89,7 @@ const DonateForm = (props) => {
           onChange={handleFormChange} type="item" />
       </Form.Group>
       <Form.Group>
-        <Form.File id="exampleFormControlFile1" label="Submit a photo of your donation" onChange={onFileChange} />
+        <Form.File id="exampleFormControlFile1" label="Submit a photo of your donation" onChange={handleChange} />
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlTextarea1">
         <Form.Label>If you would like, describe the item(s) you are donating</Form.Label>

@@ -6,15 +6,10 @@ import Buttons from '../Buttons'
 
 const Donate = () => (
     <Link to='/donate'>
-    <Buttons className="donate">
-   Donate
-    </Buttons>
+        <Buttons className="donate">
+            Donate
+        </Buttons>
     </Link>
-  
-
-
 )
-
-
 
 export default Donate

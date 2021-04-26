@@ -1,27 +1,25 @@
 .main {
-    text-align: center;
-    padding: 15px;
-  }
-  
-  .card {
-    max-width: 100%;
-  }
-  
-  .posts {
-    text-align: center;
-    background-color: white;
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 5px 10px;
-    
-  }
-  
-  
-  .trash:hover {
-    color: gray
-  }
-  
-  .feed {
-    text-align: left;
-  }
+  text-align: center;
+  padding: 15px;
+}
+
+.card {
+  max-width: 100%;
+}
+
+.posts {
+  text-align: center;
+  background-color: white;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 5px 10px;
+}
+
+.trash:hover {
+  color: gray;
+}
+
+.feed {
+  text-align: left;
+}
