@@ -10,7 +10,6 @@ import { useGeo } from "../../contexts/GeoContext"
 
 const DonateForm = (props) => {
 
-  const [fileUrl, setFileUrl] = useState(null);
   const [formObject, setFormObject] = useState({
     title: "",
     description: "",
@@ -21,7 +20,6 @@ const DonateForm = (props) => {
   const [imageState, setImageState] = useState({
     image: null,
     url: "",
-    progress: 0
   })
 
 
@@ -47,14 +45,12 @@ const DonateForm = (props) => {
     const { image } = imageState;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on("state_changed", snapshot => {
-      // progress function ...
-      const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-      setImageState({ progress })
+      // Josh progress function --
+      const  progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      console.log('Upload is ' + progress + '% done')
     }, error => {
-      // Error function ...
       console.log(error)
     }, async () => {
-      // complete function ...
       await storage
         .ref("images")
         .child(image.name)
