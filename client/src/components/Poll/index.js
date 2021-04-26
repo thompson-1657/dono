@@ -80,7 +80,7 @@ const Poll = () => {
                       <Form.Label>
                         <p>{polls.text}</p>
                         <p>
-                          <BsCheck className="check" onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '30%', height: '30%' }} /> {polls.votes}</p>
+                          <BsCheck className="check" onClick={() => handleUpVoteClick(polls._id, polls.votes)} src="/icons/thumb-up.png" style={{ width: '20px', height: '20px' }} /> {polls.votes}</p>
                         {polls.firebaseId === currentUser.uid &&
                           <BsTrashFill name="id"
                             onClick={() => handleDeletePollClick(polls._id)}
