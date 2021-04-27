@@ -48,6 +48,9 @@ in the terminal command line.
 
 ---
 
+[![recording (4) copy](https://user-images.githubusercontent.com/71091515/116281924-d273ee00-a74f-11eb-9471-d839af139319.gif)](https://drive.google.com/file/d/12Rb_sWwubBvjfWOTlbj5SES3UdGD1Rlz/view)
+Click gif above for link to full demo
+
 To use the dōnō application the user may begin by signing up for the application by entering their email and a password that is at least six characters in length. Once signed in the user is directed to the main page that is connected to other users which are linked by their geographical location. The main page will have a navigation bar with links to varying pages within the application followed by user polls, community posts, user donation posts and an area to enter new community posts.
 
 In the polls area of the main page users can quickly view which items are needed by other users in the community by seeing what has been added and how many upvotes it is recieving. If there is a unique item the user is in need of they can enter it into the poll to be voted on by other users as well.
@@ -57,6 +60,8 @@ Community posts, located in the center of the page, display various donation eve
 The donation posts on the main page display items that have been posted for donation. To create a donation post the user can click on donate and enter information about the donation they are making. Once the form is completed and submitted the donation entered will post to the main page for other users to view.
 
 The dōnō application is a modern solution to bring a community together to help one another in varying times of need.
+
+Link to deployed site: https://infinite-thicket-26708.herokuapp.com/
 
 ## Technologies
 
